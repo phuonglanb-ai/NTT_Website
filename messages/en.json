@@ -1,0 +1,52 @@
+{
+  "nav": {
+    "home": "Home",
+    "artist": "Artist",
+    "artworks": "Artworks",
+    "journal": "Journal",
+    "friends": "Friends' Corner",
+    "contact": "Contact"
+  },
+  "collections": {
+    "nang": {
+      "name": "The World of Nàng",
+      "note": "Nude, femininity — the brand's core. Quiet, no comments."
+    },
+    "doi": {
+      "name": "Vibrations of Life",
+      "note": "Everyday life, landscape, portraiture."
+    },
+    "hon-mang": {
+      "name": "Chaos & Order",
+      "note": "Abstract, experimental, distorted form."
+    }
+  },
+  "home": {
+    "eyebrow": "Nguyễn Tuấn Thịnh — Painter",
+    "statement": "I do not paint women. I paint my feeling of their world…",
+    "cta": "Enter the three realms"
+  },
+  "artworksOverview": {
+    "title": "Artworks",
+    "intro": "Three emotional realms — the primary navigation. Style, medium and theme are only filters within each realm."
+  },
+  "collectionPage": {
+    "empty": "No published artworks in this realm yet.",
+    "error": "Could not load the artwork listing. Please try again later.",
+    "loading": "Loading artworks…"
+  },
+  "artworkDetail": {
+    "comingSoon": "The artwork detail page (Full View / Emotional Detail modes) arrives in Slice 1.",
+    "notFound": "Artwork not found."
+  },
+  "placeholderPage": {
+    "comingSoon": "Content is being prepared."
+  },
+  "admin": {
+    "title": "Admin",
+    "note": "Admin area — will be built alongside role permissions in upcoming slices."
+  },
+  "footer": {
+    "rights": "All images are copyright of the artist."
+  }
+}

@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens — docs/design-system.md
+ * Dark-first sanctuary: nền tối để tranh tự phát sáng, chữ dùng làm khoảng thở.
+ */
+@theme {
+  --color-bg: #0e0e10;
+  --color-bg-elevated: #1a1a1d;
+  --color-text: #f4efe6;
+  --color-text-muted: #a8a29a;
+  --color-accent-cobalt: #2b4f9e;
+  --color-accent-oxblood: #7a2320;
+
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}

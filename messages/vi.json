@@ -1,0 +1,52 @@
+{
+  "nav": {
+    "home": "Trang chủ",
+    "artist": "Nghệ sĩ",
+    "artworks": "Tác phẩm",
+    "journal": "Nhật ký",
+    "friends": "Góc bạn bè",
+    "contact": "Liên hệ"
+  },
+  "collections": {
+    "nang": {
+      "name": "Thế giới của Nàng",
+      "note": "Nude, tính nữ — lõi thương hiệu. Tĩnh lặng, không bình luận."
+    },
+    "doi": {
+      "name": "Rung cảm Đời sống",
+      "note": "Đời sống, phong cảnh, chân dung."
+    },
+    "hon-mang": {
+      "name": "Hỗn mang & Trật tự",
+      "note": "Trừu tượng, thử nghiệm, bóp dáng."
+    }
+  },
+  "home": {
+    "eyebrow": "Nguyễn Tuấn Thịnh — Họa sĩ",
+    "statement": "Tôi không vẽ người phụ nữ. Tôi vẽ cảm nhận của mình về thế giới của họ…",
+    "cta": "Bước vào ba cõi"
+  },
+  "artworksOverview": {
+    "title": "Tác phẩm",
+    "intro": "Ba cõi cảm xúc — điều hướng chính. Trường phái, chất liệu, chủ đề chỉ là bộ lọc bên trong mỗi cõi."
+  },
+  "collectionPage": {
+    "empty": "Chưa có tác phẩm nào được xuất bản trong cõi này.",
+    "error": "Không tải được danh mục tác phẩm. Vui lòng thử lại sau.",
+    "loading": "Đang tải tác phẩm…"
+  },
+  "artworkDetail": {
+    "comingSoon": "Trang chi tiết tác phẩm (chế độ Toàn cảnh / Chi tiết cảm xúc) sẽ có ở Slice 1.",
+    "notFound": "Không tìm thấy tác phẩm."
+  },
+  "placeholderPage": {
+    "comingSoon": "Nội dung đang được chuẩn bị."
+  },
+  "admin": {
+    "title": "Quản trị",
+    "note": "Khu vực quản trị — sẽ được xây dựng cùng phân quyền ở các slice tiếp theo."
+  },
+  "footer": {
+    "rights": "Mọi hình ảnh thuộc bản quyền của nghệ sĩ."
+  }
+}
