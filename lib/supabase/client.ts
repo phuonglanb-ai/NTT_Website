@@ -1,0 +1,12 @@
+import { createBrowserClient } from "@supabase/ssr";
+
+/**
+ * Supabase client cho trình duyệt (Client Components).
+ * Chỉ dùng anon key — mọi quyền truy cập dữ liệu đi qua RLS.
+ */
+export function createClient() {
+  return createBrowserClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+  );
+}
