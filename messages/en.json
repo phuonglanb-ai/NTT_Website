@@ -72,6 +72,46 @@
   "placeholderPage": {
     "comingSoon": "Content is being prepared."
   },
+  "artistPage": {
+    "title": "Artist",
+    "bio": "Biography",
+    "statement": "Artist Statement",
+    "journey": "Creative Journey",
+    "exhibitions": "Exhibitions & Awards",
+    "press": "Press",
+    "empty": "Content is being updated.",
+    "readSource": "Read original ↗"
+  },
+  "journal": {
+    "title": "Journal",
+    "intro": "News, exhibitions, perspectives and studio notes.",
+    "empty": "No published entries yet.",
+    "error": "Could not load the journal. Please try again later.",
+    "loading": "Loading…",
+    "readMore": "Read more →",
+    "backToJournal": "← Back to Journal",
+    "kindNews": "News",
+    "kindJournal": "Perspective",
+    "kindCriticism": "Criticism",
+    "kindExhibition": "Exhibition",
+    "notFound": "Entry not found.",
+    "prev": "‹ Prev",
+    "next": "Next ›",
+    "pageOf": "Page {page} / {totalPages}"
+  },
+  "contact": {
+    "title": "Contact",
+    "intro": "Send a thought, a question, or an inquiry about a work. The artist / manager will respond privately.",
+    "name": "Full name",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Send",
+    "sending": "Sending…",
+    "success": "Thank you. Your message has been sent; we'll respond soon.",
+    "error": "Could not send. Please check your details and try again.",
+    "required": "Please fill in your name, email and message.",
+    "rateLimited": "You just sent a message. Please try again in a few minutes."
+  },
   "admin": {
     "title": "Admin",
     "note": "Admin area — will be built alongside role permissions in upcoming slices."

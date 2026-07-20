@@ -39,12 +39,24 @@ export default async function ProtectedAdminLayout({
   return (
     <div>
       <header className="flex items-center justify-between border-b border-white/10 px-6 py-4">
-        <nav className="flex items-center gap-6 text-sm text-text-muted">
+        <nav className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-text-muted">
           <Link href="/admin" className="hover:text-text">
             Quản trị
           </Link>
           <Link href="/admin/tac-pham" className="hover:text-text">
             Tác phẩm
+          </Link>
+          <Link href="/admin/nghe-si" className="hover:text-text">
+            Nghệ sĩ
+          </Link>
+          <Link href="/admin/trien-lam" className="hover:text-text">
+            Triển lãm
+          </Link>
+          <Link href="/admin/nhat-ky" className="hover:text-text">
+            Nhật ký
+          </Link>
+          <Link href="/admin/lien-he" className="hover:text-text">
+            Lời nhắn
           </Link>
         </nav>
         <div className="flex items-center gap-4 text-sm text-text-muted">

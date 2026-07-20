@@ -72,6 +72,46 @@
   "placeholderPage": {
     "comingSoon": "Nội dung đang được chuẩn bị."
   },
+  "artistPage": {
+    "title": "Nghệ sĩ",
+    "bio": "Tiểu sử",
+    "statement": "Tuyên ngôn nghệ thuật",
+    "journey": "Hành trình sáng tác",
+    "exhibitions": "Triển lãm & giải thưởng",
+    "press": "Báo chí viết về nghệ sĩ",
+    "empty": "Nội dung đang được cập nhật.",
+    "readSource": "Đọc bài gốc ↗"
+  },
+  "journal": {
+    "title": "Nhật ký",
+    "intro": "Tin tức, triển lãm, góc nhìn và hậu trường sáng tác.",
+    "empty": "Chưa có bài viết nào được xuất bản.",
+    "error": "Không tải được nhật ký. Vui lòng thử lại sau.",
+    "loading": "Đang tải…",
+    "readMore": "Đọc tiếp →",
+    "backToJournal": "← Quay lại Nhật ký",
+    "kindNews": "Tin tức",
+    "kindJournal": "Góc nhìn",
+    "kindCriticism": "Phê bình",
+    "kindExhibition": "Triển lãm",
+    "notFound": "Không tìm thấy bài viết.",
+    "prev": "‹ Trước",
+    "next": "Sau ›",
+    "pageOf": "Trang {page} / {totalPages}"
+  },
+  "contact": {
+    "title": "Liên hệ",
+    "intro": "Gửi cảm nhận, câu hỏi hoặc yêu cầu tìm hiểu tác phẩm. Nghệ sĩ / quản lý sẽ phản hồi riêng.",
+    "name": "Họ và tên",
+    "email": "Email",
+    "message": "Lời nhắn",
+    "submit": "Gửi",
+    "sending": "Đang gửi…",
+    "success": "Cảm ơn bạn. Lời nhắn đã được gửi, chúng tôi sẽ phản hồi sớm.",
+    "error": "Không gửi được. Vui lòng kiểm tra lại thông tin và thử lại.",
+    "required": "Vui lòng điền đầy đủ họ tên, email và lời nhắn.",
+    "rateLimited": "Bạn vừa gửi một lời nhắn. Vui lòng thử lại sau ít phút."
+  },
   "admin": {
     "title": "Quản trị",
     "note": "Khu vực quản trị — sẽ được xây dựng cùng phân quyền ở các slice tiếp theo."
