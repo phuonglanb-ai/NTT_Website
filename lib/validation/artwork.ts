@@ -25,7 +25,7 @@ export const artworkInputSchema = z.object({
     .max(2100, "Năm không hợp lệ."),
   type: z.enum(ARTWORK_TYPES, { message: "Bắt buộc chọn loại hình." }),
   collectionId: z.string().trim().min(1, "Bắt buộc chọn cõi."),
-  mediumId: z.string().trim().min(1, "Bắt buộc chọn chất liệu."),
+  mediumId: z.string().trim().optional().default(""),
   seriesId: z.string().trim().optional().default(""),
   dimensions: z.string().trim().optional().default(""),
   dominantColors: z.array(z.string()).optional().default([]),

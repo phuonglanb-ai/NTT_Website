@@ -222,7 +222,7 @@ export async function createArtwork(
       year: data.year,
       type: data.type,
       collection_id: data.collectionId,
-      medium_id: data.mediumId,
+      medium_id: data.mediumId || null,
       series_id: data.seriesId || null,
       dimensions: data.dimensions || null,
       dominant_colors: data.dominantColors,

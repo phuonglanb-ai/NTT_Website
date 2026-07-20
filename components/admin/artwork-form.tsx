@@ -150,18 +150,15 @@ export function ArtworkForm({ action, currentRole, lookups, initialData, existin
 
         <div className="flex flex-col gap-1">
           <label className={labelClass} htmlFor="mediumId">
-            Chất liệu *
+            Chất liệu
           </label>
           <select
             id="mediumId"
             name="mediumId"
-            required
             defaultValue={initialData?.mediumId ?? ""}
             className={fieldClass}
           >
-            <option value="" disabled>
-              Chọn chất liệu
-            </option>
+            <option value="">Chưa xác định</option>
             {lookups.mediums.map((m) => (
               <option key={m.id} value={m.id}>
                 {m.name_vi}
@@ -384,6 +381,10 @@ export function ArtworkForm({ action, currentRole, lookups, initialData, existin
               </option>
             ))}
           </select>
+          <p className="text-xs text-text-muted">
+            Nháp: chỉ Admin/Editor thấy. Xuất bản: hiện công khai trên trang
+            danh mục tác phẩm.
+          </p>
         </div>
         <div className="flex flex-col gap-1">
           <label className={labelClass} htmlFor="ownershipStatus">
