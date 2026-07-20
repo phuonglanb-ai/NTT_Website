@@ -61,38 +61,35 @@ function mapDbError(error: { code?: string; message: string }) {
 }
 
 type SupabaseServerClient = Awaited<ReturnType<typeof createClient>>;
+type ImageEntry = { file: File; altVi: string; altEn: string; isPrimary: boolean };
 
-async function uploadArtworkImages(
-  supabase: SupabaseServerClient,
-  artworkId: string,
+/**
+ * Doc + validate cac file anh tu FormData (bat buoc co anh chinh + alt text
+ * day du) TRUOC KHI dong cham database -- tranh tao ban ghi artworks "mo coi"
+ * neu validate anh that bai sau khi da insert (bug thuc te da gap: tao tac
+ * pham xong nhung thieu alt text nen anh khong luu duoc, con tac pham thi da
+ * ton tai o dang draft khong anh).
+ */
+function collectImageEntries(
   formData: FormData,
   { requirePrimary }: { requirePrimary: boolean },
-): Promise<string | null> {
+): { entries: ImageEntry[]; hasNewPrimary: boolean } | { error: string } {
   const primaryFile = formData.get("primaryImage");
   const hasPrimaryFile = primaryFile instanceof File && primaryFile.size > 0;
 
   if (requirePrimary && !hasPrimaryFile) {
-    return "Bắt buộc chọn ảnh chính.";
+    return { error: "Bắt buộc chọn ảnh chính." };
   }
 
-  const entries: { file: File; altVi: string; altEn: string; isPrimary: boolean }[] = [];
+  const entries: ImageEntry[] = [];
 
   if (hasPrimaryFile) {
     const altVi = str(formData, "primaryAltVi");
     const altEn = str(formData, "primaryAltEn");
     if (!altVi || !altEn) {
-      return "Bắt buộc nhập alt text (vi/en) cho ảnh chính.";
+      return { error: "Bắt buộc nhập alt text (vi/en) cho ảnh chính." };
     }
     entries.push({ file: primaryFile as File, altVi, altEn, isPrimary: true });
-
-    if (!requirePrimary) {
-      // Dang sua va co anh chinh moi -> anh chinh cu khong con la primary nua.
-      await supabase
-        .from("artwork_images")
-        .update({ is_primary: false })
-        .eq("artwork_id", artworkId)
-        .eq("is_primary", true);
-    }
   }
 
   let i = 0;
@@ -102,11 +99,31 @@ async function uploadArtworkImages(
       const altVi = str(formData, `detailAltVi_${i}`);
       const altEn = str(formData, `detailAltEn_${i}`);
       if (!altVi || !altEn) {
-        return `Bắt buộc nhập alt text (vi/en) cho ảnh chi tiết #${i + 1}.`;
+        return { error: `Bắt buộc nhập alt text (vi/en) cho ảnh chi tiết #${i + 1}.` };
       }
       entries.push({ file, altVi, altEn, isPrimary: false });
     }
     i++;
+  }
+
+  return { entries, hasNewPrimary: hasPrimaryFile };
+}
+
+async function processAndUploadImages(
+  supabase: SupabaseServerClient,
+  artworkId: string,
+  entries: ImageEntry[],
+  hasNewPrimary: boolean,
+): Promise<string | null> {
+  if (entries.length === 0) return null;
+
+  if (hasNewPrimary) {
+    // Dang sua va co anh chinh moi -> anh chinh cu (neu co) khong con la primary nua.
+    await supabase
+      .from("artwork_images")
+      .update({ is_primary: false })
+      .eq("artwork_id", artworkId)
+      .eq("is_primary", true);
   }
 
   const { count } = await supabase
@@ -191,6 +208,9 @@ export async function createArtwork(
   const data = parsed.data;
   const allowArtistNote = canEditArtistNote(current.role);
 
+  const imageResult = collectImageEntries(formData, { requirePrimary: true });
+  if ("error" in imageResult) return { error: imageResult.error };
+
   const supabase = await createClient();
 
   const { data: inserted, error: insertError } = await supabase
@@ -237,9 +257,12 @@ export async function createArtwork(
 
   await replaceStylesAndThemes(supabase, artworkId, data.styleIds, data.themeIds);
 
-  const uploadError = await uploadArtworkImages(supabase, artworkId, formData, {
-    requirePrimary: true,
-  });
+  const uploadError = await processAndUploadImages(
+    supabase,
+    artworkId,
+    imageResult.entries,
+    imageResult.hasNewPrimary,
+  );
   if (uploadError) return { error: uploadError };
 
   revalidatePath("/admin/tac-pham");
@@ -260,6 +283,9 @@ export async function updateArtwork(
   }
   const data = parsed.data;
   const allowArtistNote = canEditArtistNote(current.role);
+
+  const imageResult = collectImageEntries(formData, { requirePrimary: false });
+  if ("error" in imageResult) return { error: imageResult.error };
 
   const supabase = await createClient();
 
@@ -318,9 +344,12 @@ export async function updateArtwork(
 
   await replaceStylesAndThemes(supabase, artworkId, data.styleIds, data.themeIds);
 
-  const uploadError = await uploadArtworkImages(supabase, artworkId, formData, {
-    requirePrimary: false,
-  });
+  const uploadError = await processAndUploadImages(
+    supabase,
+    artworkId,
+    imageResult.entries,
+    imageResult.hasNewPrimary,
+  );
   if (uploadError) return { error: uploadError };
 
   revalidatePath("/admin/tac-pham");

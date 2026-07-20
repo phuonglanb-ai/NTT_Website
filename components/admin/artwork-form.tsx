@@ -479,15 +479,25 @@ export function ArtworkForm({ action, currentRole, lookups, initialData, existin
           </div>
           <div className="flex flex-col gap-1">
             <label className={labelClass} htmlFor="primaryAltVi">
-              Alt text ảnh chính (VI)
+              Alt text ảnh chính (VI) {isEdit ? "" : "*"}
             </label>
-            <input id="primaryAltVi" name="primaryAltVi" className={fieldClass} />
+            <input
+              id="primaryAltVi"
+              name="primaryAltVi"
+              required={!isEdit}
+              className={fieldClass}
+            />
           </div>
           <div className="flex flex-col gap-1">
             <label className={labelClass} htmlFor="primaryAltEn">
-              Alt text ảnh chính (EN)
+              Alt text ảnh chính (EN) {isEdit ? "" : "*"}
             </label>
-            <input id="primaryAltEn" name="primaryAltEn" className={fieldClass} />
+            <input
+              id="primaryAltEn"
+              name="primaryAltEn"
+              required={!isEdit}
+              className={fieldClass}
+            />
           </div>
         </div>
 
