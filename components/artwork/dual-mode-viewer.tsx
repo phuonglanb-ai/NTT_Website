@@ -43,31 +43,31 @@ export function DualModeViewer({ primaryImage, detailImages, locale }: Props) {
         </button>
       </div>
 
-      {mode === "full" || !hasDetail ? (
-        primaryImage ? (
-          <div className="w-full bg-bg-elevated">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={primaryImage.webUrl}
-              alt={altFor(primaryImage)}
-              className="h-auto w-full object-contain"
-            />
+      {(() => {
+        const imagesToShow =
+          mode === "detail" && hasDetail ? detailImages : primaryImage ? [primaryImage] : [];
+
+        return (
+          <div className="flex flex-col gap-6">
+            {imagesToShow.map((img) => (
+              // Anh luon vua khung nhin (khong tran, khong bi cat) du vuong/
+              // doc/ngang -- zoom xem chi tiet van mau dung pinch-zoom goc
+              // cua trinh duyet/dien thoai, khong ep khung to hon man hinh.
+              <div
+                key={img.id}
+                className="flex w-full items-center justify-center bg-bg-elevated"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={img.webUrl}
+                  alt={altFor(img)}
+                  className="max-h-[55vh] w-auto max-w-full object-contain"
+                />
+              </div>
+            ))}
           </div>
-        ) : null
-      ) : (
-        <div className="flex flex-col gap-6">
-          {detailImages.map((img) => (
-            <div key={img.id} className="w-full overflow-x-auto border border-white/10">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={img.webUrl}
-                alt={altFor(img)}
-                className="h-[75vh] w-auto max-w-none"
-              />
-            </div>
-          ))}
-        </div>
-      )}
+        );
+      })()}
     </div>
   );
 }
