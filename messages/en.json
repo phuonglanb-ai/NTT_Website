@@ -33,11 +33,41 @@
   "collectionPage": {
     "empty": "No published artworks in this realm yet.",
     "error": "Could not load the artwork listing. Please try again later.",
-    "loading": "Loading artworks…"
+    "loading": "Loading artworks…",
+    "prev": "‹ Prev",
+    "next": "Next ›",
+    "pageOf": "Page {page} / {totalPages}"
+  },
+  "filters": {
+    "typeLabel": "Type",
+    "yearLabel": "Year",
+    "allTypes": "All types",
+    "submit": "Filter"
+  },
+  "artworkTypes": {
+    "painting": "Painting",
+    "sculpture": "Sculpture",
+    "sketch": "Sketch",
+    "other": "Other"
+  },
+  "ownershipStatus": {
+    "available": "Available",
+    "notAvailable": "In a collection"
+  },
+  "common": {
+    "retry": "Retry"
   },
   "artworkDetail": {
-    "comingSoon": "The artwork detail page (Full View / Emotional Detail modes) arrives in Slice 1.",
-    "notFound": "Artwork not found."
+    "notFound": "Artwork not found.",
+    "error": "Could not load this artwork. Please try again later.",
+    "loading": "Loading…",
+    "fullView": "Full View",
+    "detailView": "Emotional Detail",
+    "objectiveLabel": "Description",
+    "artistNoteLabel": "Artist's note",
+    "criticNoteLabel": "Critic's note",
+    "contextLabel": "Context",
+    "backToCollection": "← Back to collection"
   },
   "placeholderPage": {
     "comingSoon": "Content is being prepared."

@@ -33,11 +33,41 @@
   "collectionPage": {
     "empty": "Chưa có tác phẩm nào được xuất bản trong cõi này.",
     "error": "Không tải được danh mục tác phẩm. Vui lòng thử lại sau.",
-    "loading": "Đang tải tác phẩm…"
+    "loading": "Đang tải tác phẩm…",
+    "prev": "‹ Trước",
+    "next": "Sau ›",
+    "pageOf": "Trang {page} / {totalPages}"
+  },
+  "filters": {
+    "typeLabel": "Loại hình",
+    "yearLabel": "Năm",
+    "allTypes": "Tất cả loại hình",
+    "submit": "Lọc"
+  },
+  "artworkTypes": {
+    "painting": "Tranh",
+    "sculpture": "Điêu khắc",
+    "sketch": "Ký họa",
+    "other": "Khác"
+  },
+  "ownershipStatus": {
+    "available": "Còn",
+    "notAvailable": "Đã thuộc sưu tập"
+  },
+  "common": {
+    "retry": "Thử lại"
   },
   "artworkDetail": {
-    "comingSoon": "Trang chi tiết tác phẩm (chế độ Toàn cảnh / Chi tiết cảm xúc) sẽ có ở Slice 1.",
-    "notFound": "Không tìm thấy tác phẩm."
+    "notFound": "Không tìm thấy tác phẩm.",
+    "error": "Không tải được tác phẩm. Vui lòng thử lại sau.",
+    "loading": "Đang tải…",
+    "fullView": "Toàn cảnh",
+    "detailView": "Chi tiết cảm xúc",
+    "objectiveLabel": "Mô tả",
+    "artistNoteLabel": "Lời nghệ sĩ",
+    "criticNoteLabel": "Bình luận",
+    "contextLabel": "Bối cảnh",
+    "backToCollection": "← Quay lại danh mục"
   },
   "placeholderPage": {
     "comingSoon": "Nội dung đang được chuẩn bị."
