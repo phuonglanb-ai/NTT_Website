@@ -55,6 +55,9 @@ export default async function ProtectedAdminLayout({
           <Link href="/admin/nhat-ky" className="hover:text-text">
             Nhật ký
           </Link>
+          <Link href="/admin/ban-be" className="hover:text-text">
+            Bạn bè
+          </Link>
           <Link href="/admin/lien-he" className="hover:text-text">
             Lời nhắn
           </Link>

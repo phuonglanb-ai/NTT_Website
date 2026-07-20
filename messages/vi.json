@@ -72,6 +72,21 @@
   "placeholderPage": {
     "comingSoon": "Nội dung đang được chuẩn bị."
   },
+  "friendsPage": {
+    "title": "Góc bạn bè",
+    "intro": "Nghệ sĩ, bạn hữu và những góc nhìn được chia sẻ.",
+    "empty": "Nội dung đang được cập nhật."
+  },
+  "search": {
+    "title": "Tìm kiếm",
+    "nav": "Tìm kiếm",
+    "placeholder": "Tìm tác phẩm theo tên hoặc từ khóa…",
+    "submit": "Tìm",
+    "resultsFor": "Kết quả cho “{q}”",
+    "empty": "Không tìm thấy tác phẩm phù hợp.",
+    "prompt": "Nhập từ khóa để tìm tác phẩm.",
+    "loading": "Đang tìm…"
+  },
   "artistPage": {
     "title": "Nghệ sĩ",
     "bio": "Tiểu sử",

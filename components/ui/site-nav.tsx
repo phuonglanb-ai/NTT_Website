@@ -6,6 +6,7 @@ import { LocaleSwitcher } from "./locale-switcher";
 export async function SiteNav() {
   const t = await getTranslations("nav");
   const tCollections = await getTranslations("collections");
+  const tSearch = await getTranslations("search");
 
   return (
     <header className="border-b border-white/10">
@@ -44,6 +45,9 @@ export async function SiteNav() {
           </Link>
           <Link href="/lien-he" className="transition-colors hover:text-text">
             {t("contact")}
+          </Link>
+          <Link href="/tim-kiem" className="transition-colors hover:text-text">
+            {tSearch("nav")}
           </Link>
 
           <LocaleSwitcher />

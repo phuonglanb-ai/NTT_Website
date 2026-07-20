@@ -72,6 +72,21 @@
   "placeholderPage": {
     "comingSoon": "Content is being prepared."
   },
+  "friendsPage": {
+    "title": "Friends' Corner",
+    "intro": "The artist, friends, and shared perspectives.",
+    "empty": "Content is being updated."
+  },
+  "search": {
+    "title": "Search",
+    "nav": "Search",
+    "placeholder": "Search artworks by title or keyword…",
+    "submit": "Search",
+    "resultsFor": "Results for “{q}”",
+    "empty": "No matching artworks found.",
+    "prompt": "Enter a keyword to search artworks.",
+    "loading": "Searching…"
+  },
   "artistPage": {
     "title": "Artist",
     "bio": "Biography",
