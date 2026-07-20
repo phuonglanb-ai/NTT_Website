@@ -18,12 +18,14 @@ export function ArtworkCard({
     >
       <div className="aspect-[4/5] w-full overflow-hidden bg-bg-elevated">
         {artwork.primaryImageUrl ? (
+          // Luon hien toan bo tac pham (object-contain), khong cat xen --
+          // du anh khong khop ty le 4:5 thi de khoang thu (cung mau nen).
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={artwork.primaryImageUrl}
             alt={alt}
             loading="lazy"
-            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105"
           />
         ) : null}
       </div>
