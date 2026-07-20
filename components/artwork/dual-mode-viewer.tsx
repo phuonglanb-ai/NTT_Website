@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import type { ArtworkImage } from "@/lib/content/artworks";
+import { ZoomPanImage } from "./zoom-pan-image";
 
 type Props = {
   primaryImage: ArtworkImage | null;
@@ -48,22 +49,9 @@ export function DualModeViewer({ primaryImage, detailImages, locale }: Props) {
           mode === "detail" && hasDetail ? detailImages : primaryImage ? [primaryImage] : [];
 
         return (
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-10">
             {imagesToShow.map((img) => (
-              // Anh luon vua khung nhin (khong tran, khong bi cat) du vuong/
-              // doc/ngang -- zoom xem chi tiet van mau dung pinch-zoom goc
-              // cua trinh duyet/dien thoai, khong ep khung to hon man hinh.
-              <div
-                key={img.id}
-                className="flex w-full items-center justify-center bg-bg-elevated"
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={img.webUrl}
-                  alt={altFor(img)}
-                  className="max-h-[55vh] w-auto max-w-full object-contain"
-                />
-              </div>
+              <ZoomPanImage key={img.id} src={img.webUrl} alt={altFor(img)} />
             ))}
           </div>
         );
