@@ -1,34 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NTT_Website
 
-## Getting Started
+Không gian nghệ thuật và giao lưu của Họa sĩ Nguyễn Tuấn Thịnh.
 
-First, run the development server:
+Website chính thức lưu giữ tác phẩm, hành trình sáng tác và thế giới quan của nghệ sĩ — song ngữ Việt/Anh, thiết kế dark-first để tranh tự phát sáng.
+
+## Cấu trúc nội dung
+
+Điều hướng chính là **ba cõi**: Thế giới của Nàng · Rung cảm Đời sống · Hỗn mang & Trật tự.
+Trường phái, chất liệu, chủ đề chỉ là **bộ lọc** bên trong mỗi cõi.
+
+Mô hình "đền có salon": lõi (Trang chủ, Nghệ sĩ, Tác phẩm) giữ tĩnh lặng; tương tác nằm ở cánh salon (Nhật ký, Góc bạn bè, Liên hệ).
+
+## Công nghệ
+
+- **Next.js 16** (App Router) + TypeScript strict + Tailwind CSS v4
+- **Supabase**: Postgres (RLS deny-by-default) + Auth + Storage
+- **Vercel** hosting · `next-intl` cho song ngữ `/vi` `/en` · `sharp` xử lý ảnh
+
+## Chạy ở máy
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+cp .env.example .env.local   # rồi điền giá trị thật
+npm run dev                  # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Khu quản trị: `/admin` (tài khoản được cấp thủ công, không có đăng ký công khai).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build      # build production
+npx tsc --noEmit   # kiểm tra kiểu
+npm run lint
+```
 
-## Learn More
+## Cơ sở dữ liệu
 
-To learn more about Next.js, take a look at the following resources:
+Migration nằm trong `supabase/migrations/`, áp dụng bằng Supabase CLI:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npx supabase db push --db-url "<SUPABASE_DB_URL>"
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Tài liệu
 
-## Deploy on Vercel
+| File | Nội dung |
+|---|---|
+| [`docs/runbook.md`](docs/runbook.md) | **Sổ tay vận hành** — hướng dẫn dùng hằng ngày, không cần biết kỹ thuật |
+| [`docs/product-brief.md`](docs/product-brief.md) | Phạm vi sản phẩm, đối tượng, MVP |
+| [`docs/content-model.md`](docs/content-model.md) | Mô hình dữ liệu |
+| [`docs/design-system.md`](docs/design-system.md) | Màu, chữ, bố cục |
+| [`docs/sitemap.md`](docs/sitemap.md) | Cây điều hướng, URL |
+| [`docs/security-requirements.md`](docs/security-requirements.md) | Yêu cầu bảo mật |
+| [`docs/moderation-policy.md`](docs/moderation-policy.md) | Chính sách kiểm duyệt |
+| [`docs/ai-knowledge-policy.md`](docs/ai-knowledge-policy.md) | Chính sách tri thức AI (V2) |
+| [`CLAUDE.md`](CLAUDE.md) · [`AGENTS.md`](AGENTS.md) | Luật cho AI coding agent |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Nguyên tắc bất di
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Không xuất bản nội dung AI tự sinh khi chưa được phê duyệt.
+- Không bao giờ trình bày văn bản AI như thể là lời nghệ sĩ.
+- Ảnh gốc lưu ở kho riêng tư; dữ liệu liên hệ không lộ ra API công khai.
