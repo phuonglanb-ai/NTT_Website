@@ -6,6 +6,7 @@ import { createClient } from "@/lib/supabase/server";
 import { requireRole, type UserRole } from "@/lib/auth/roles";
 import { artworkInputSchema } from "@/lib/validation/artwork";
 import { createWebRendition } from "@/lib/images/process";
+import { logAudit } from "@/lib/audit";
 
 export type ArtworkFormState = { error?: string } | undefined;
 
@@ -265,6 +266,13 @@ export async function createArtwork(
   );
   if (uploadError) return { error: uploadError };
 
+  await logAudit({
+    action: "create",
+    entity: "artwork",
+    entityId: artworkId,
+    summary: `${data.code} — ${data.titleVi} (${data.status})`,
+  });
+
   revalidatePath("/admin/tac-pham");
   redirect(`/admin/tac-pham/${artworkId}`);
 }
@@ -351,6 +359,13 @@ export async function updateArtwork(
     imageResult.hasNewPrimary,
   );
   if (uploadError) return { error: uploadError };
+
+  await logAudit({
+    action: "update",
+    entity: "artwork",
+    entityId: artworkId,
+    summary: `${data.code} — ${data.titleVi} (${data.status})`,
+  });
 
   revalidatePath("/admin/tac-pham");
   revalidatePath(`/admin/tac-pham/${artworkId}`);

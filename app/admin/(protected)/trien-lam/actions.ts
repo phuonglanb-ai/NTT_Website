@@ -6,6 +6,7 @@ import { createClient } from "@/lib/supabase/server";
 import { requireRole } from "@/lib/auth/roles";
 import { exhibitionInputSchema } from "@/lib/validation/exhibition";
 import { slugify } from "@/lib/slug";
+import { logAudit } from "@/lib/audit";
 
 export type ExhibitionFormState = { error?: string } | undefined;
 
@@ -83,6 +84,13 @@ export async function createExhibition(
   const { error } = await supabase.from("exhibitions").insert(payload);
   if (error) return { error: `Lỗi lưu dữ liệu: ${error.message}` };
 
+  await logAudit({
+    action: "create",
+    entity: "exhibition",
+    entityId: slug,
+    summary: `${parsed.data.titleVi} (${parsed.data.status})`,
+  });
+
   revalidatePath("/admin/trien-lam");
   redirect("/admin/trien-lam");
 }
@@ -110,6 +118,13 @@ export async function updateExhibition(
 
   const { error } = await supabase.from("exhibitions").update(payload).eq("id", id);
   if (error) return { error: `Lỗi lưu dữ liệu: ${error.message}` };
+
+  await logAudit({
+    action: "update",
+    entity: "exhibition",
+    entityId: id,
+    summary: `${parsed.data.titleVi} (${parsed.data.status})`,
+  });
 
   revalidatePath("/admin/trien-lam");
   redirect("/admin/trien-lam");

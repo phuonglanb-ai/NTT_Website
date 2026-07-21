@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { Inter, Playfair_Display } from "next/font/google";
 import { notFound } from "next/navigation";
+import { Analytics } from "@vercel/analytics/next";
 import { routing } from "@/i18n/routing";
 import { SiteNav } from "@/components/ui/site-nav";
+import { SiteFooter } from "@/components/ui/site-footer";
 import "../globals.css";
 
 const playfair = Playfair_Display({
@@ -44,13 +47,24 @@ export default async function LocaleLayout({
     notFound();
   }
 
+  const t = await getTranslations("a11y");
+
   return (
     <html lang={locale} className={`${playfair.variable} ${inter.variable}`}>
       <body className="bg-bg font-sans text-text antialiased">
         <NextIntlClientProvider>
+          {/* Skip-link: an cho toi khi dung phim Tab -- WCAG 2.4.1 */}
+          <a
+            href="#main"
+            className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:border focus:border-accent-cobalt focus:bg-bg-elevated focus:px-4 focus:py-2 focus:text-text"
+          >
+            {t("skipToContent")}
+          </a>
           <SiteNav />
-          <main>{children}</main>
+          <main id="main">{children}</main>
+          <SiteFooter />
         </NextIntlClientProvider>
+        <Analytics />
       </body>
     </html>
   );

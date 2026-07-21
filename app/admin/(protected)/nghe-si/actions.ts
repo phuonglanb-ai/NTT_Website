@@ -5,6 +5,7 @@ import { createClient } from "@/lib/supabase/server";
 import { requireRole } from "@/lib/auth/roles";
 import { artistInputSchema } from "@/lib/validation/artist";
 import { uploadWebImage } from "@/lib/images/upload";
+import { logAudit } from "@/lib/audit";
 
 export type ArtistFormState = { error?: string; ok?: boolean } | undefined;
 
@@ -56,6 +57,13 @@ export async function updateArtist(
 
   const { error } = await supabase.from("artists").update(payload).eq("id", artistId);
   if (error) return { error: `Lỗi lưu dữ liệu: ${error.message}` };
+
+  await logAudit({
+    action: "update",
+    entity: "artist",
+    entityId: artistId,
+    summary: data.name,
+  });
 
   revalidatePath("/admin/nghe-si");
   revalidatePath("/vi/nghe-si");

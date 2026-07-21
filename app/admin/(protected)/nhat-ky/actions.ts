@@ -6,6 +6,7 @@ import { createClient } from "@/lib/supabase/server";
 import { requireRole } from "@/lib/auth/roles";
 import { journalInputSchema } from "@/lib/validation/journal";
 import { slugify } from "@/lib/slug";
+import { logAudit } from "@/lib/audit";
 
 export type JournalFormState = { error?: string } | undefined;
 
@@ -97,6 +98,12 @@ export async function createJournalEntry(
     if (error) return { error: `Lỗi lưu dữ liệu: ${error.message}` };
   }
 
+  await logAudit({
+    action: "create",
+    entity: data.source === "news" ? "news" : `article:${data.kind}`,
+    summary: `${data.titleVi} (${data.status})`,
+  });
+
   revalidateJournal();
   redirect("/admin/nhat-ky");
 }
@@ -144,6 +151,13 @@ export async function updateJournalEntry(
 
   const { error } = await supabase.from(table).update(base).eq("id", id);
   if (error) return { error: `Lỗi lưu dữ liệu: ${error.message}` };
+
+  await logAudit({
+    action: "update",
+    entity: source === "news" ? "news" : `article:${data.kind}`,
+    entityId: id,
+    summary: `${data.titleVi} (${data.status})`,
+  });
 
   revalidateJournal();
   redirect("/admin/nhat-ky");

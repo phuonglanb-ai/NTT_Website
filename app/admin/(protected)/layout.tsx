@@ -61,6 +61,11 @@ export default async function ProtectedAdminLayout({
           <Link href="/admin/lien-he" className="hover:text-text">
             Lời nhắn
           </Link>
+          {current.role === "admin" && (
+            <Link href="/admin/nhat-ky-he-thong" className="hover:text-text">
+              Nhật ký hệ thống
+            </Link>
+          )}
         </nav>
         <div className="flex items-center gap-4 text-sm text-text-muted">
           <span>

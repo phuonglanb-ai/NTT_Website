@@ -7,6 +7,7 @@ import { requireRole } from "@/lib/auth/roles";
 import { personInputSchema, contributionInputSchema } from "@/lib/validation/friends";
 import { uploadWebImage } from "@/lib/images/upload";
 import { slugify } from "@/lib/slug";
+import { logAudit } from "@/lib/audit";
 
 export type FriendsFormState = { error?: string } | undefined;
 
@@ -81,6 +82,13 @@ export async function createPerson(
   const { error } = await supabase.from("people").insert(payload);
   if (error) return { error: `Lỗi lưu dữ liệu: ${error.message}` };
 
+  await logAudit({
+    action: "create",
+    entity: "person",
+    entityId: slug,
+    summary: `${data.name} (${data.status})`,
+  });
+
   revalidateFriends();
   redirect("/admin/ban-be");
 }
@@ -127,6 +135,13 @@ export async function updatePerson(
   const { error } = await supabase.from("people").update(payload).eq("id", id);
   if (error) return { error: `Lỗi lưu dữ liệu: ${error.message}` };
 
+  await logAudit({
+    action: "update",
+    entity: "person",
+    entityId: id,
+    summary: `${data.name} (${data.status})`,
+  });
+
   revalidateFriends();
   redirect("/admin/ban-be");
 }
@@ -162,6 +177,12 @@ export async function createContribution(
     published_at: data.status === "published" ? new Date().toISOString() : null,
   });
   if (error) return { error: `Lỗi lưu dữ liệu: ${error.message}` };
+
+  await logAudit({
+    action: "create",
+    entity: "friend_contribution",
+    summary: `${data.titleVi} (${data.status})`,
+  });
 
   revalidateFriends();
   redirect("/admin/ban-be/bai-viet");
@@ -207,6 +228,13 @@ export async function updateContribution(
 
   const { error } = await supabase.from("friend_contributions").update(payload).eq("id", id);
   if (error) return { error: `Lỗi lưu dữ liệu: ${error.message}` };
+
+  await logAudit({
+    action: "update",
+    entity: "friend_contribution",
+    entityId: id,
+    summary: `${data.titleVi} (${data.status})`,
+  });
 
   revalidateFriends();
   redirect("/admin/ban-be/bai-viet");

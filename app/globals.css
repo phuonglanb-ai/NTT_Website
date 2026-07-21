@@ -20,3 +20,26 @@ body {
   background-color: var(--color-bg);
   color: var(--color-text);
 }
+
+/*
+ * Focus rõ trên nền tối (WCAG 2.2 — 2.4.7 Focus Visible / 2.4.11 Focus
+ * Not Obscured). Mặc định của trình duyệt quá mờ trên nền #0E0E10.
+ * Dùng 2 lớp outline để thấy rõ trên cả vùng sáng lẫn vùng tối của tranh.
+ */
+:focus-visible {
+  outline: 2px solid var(--color-accent-cobalt);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgb(244 239 230 / 0.35);
+}
+
+/* Tôn trọng người dùng bật "giảm chuyển động" — design-system: chuyển động chậm */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

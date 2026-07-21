@@ -7,6 +7,7 @@ export async function SiteNav() {
   const t = await getTranslations("nav");
   const tCollections = await getTranslations("collections");
   const tSearch = await getTranslations("search");
+  const tA11y = await getTranslations("a11y");
 
   return (
     <header className="border-b border-white/10">
@@ -24,7 +25,10 @@ export async function SiteNav() {
             <Link href="/tac-pham" className="transition-colors hover:text-text">
               {t("artworks")}
             </Link>
-            <div className="invisible absolute left-0 top-full z-10 mt-3 min-w-[220px] border border-white/10 bg-bg-elevated py-2 opacity-0 transition-opacity duration-200 group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
+            <div
+              aria-label={tA11y("artworkMenu")}
+              className="invisible absolute left-0 top-full z-10 mt-3 min-w-[220px] border border-white/10 bg-bg-elevated py-2 opacity-0 transition-opacity duration-200 group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100"
+            >
               {COLLECTION_SLUGS.map((slug) => (
                 <Link
                   key={slug}
