@@ -1,4 +1,5 @@
 import { createClient as createSupabaseClient } from "@supabase/supabase-js";
+import { supabaseServiceRoleKey, supabaseUrl } from "./env";
 
 /**
  * Client dùng service_role key — bỏ qua toàn bộ RLS.
@@ -8,14 +9,10 @@ import { createClient as createSupabaseClient } from "@supabase/supabase-js";
  * hay để lộ ra bundle trình duyệt.
  */
 export function createAdminClient() {
-  return createSupabaseClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY!,
-    {
-      auth: {
-        autoRefreshToken: false,
-        persistSession: false,
-      },
+  return createSupabaseClient(supabaseUrl(), supabaseServiceRoleKey(), {
+    auth: {
+      autoRefreshToken: false,
+      persistSession: false,
     },
-  );
+  });
 }

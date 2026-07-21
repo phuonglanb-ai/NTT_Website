@@ -76,9 +76,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         }),
       );
     }
-  } catch {
+  } catch (error) {
     // Neu DB khong san sang (vd build khi chua co env), van tra ve sitemap
-    // phan tinh thay vi lam vo build.
+    // phan tinh thay vi lam vo build -- NHUNG phai ghi log, khong nuot im
+    // lang: sitemap thieu URL dong trong rat giong sitemap binh thuong, de
+    // bo sot hang thang.
+    console.error("[sitemap] Khong lay duoc noi dung dong:", error);
   }
 
   return entries;
