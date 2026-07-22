@@ -104,7 +104,7 @@ Gói Free giới hạn khoảng 1GB. Khi gần đầy, có 2 lựa chọn: nâng
 
 - [x] **Đọc và duyệt lại 2 trang pháp lý**: *Chính sách quyền riêng tư* và *Điều khoản sử dụng hình ảnh*. — **Nguyễn Tuấn Thịnh đã duyệt ngày 22/07/2026**, ghi tại `docs/content-approvals.md`.
 - [x] **Đổi mật khẩu tài khoản admin** sang mật khẩu mạnh, chỉ bạn biết. — **Đã đổi 22/07/2026.**
-- [ ] Đặt biến `NEXT_PUBLIC_SITE_URL` bằng địa chỉ thật của website (trên Vercel → Settings → Environment Variables). Thiếu bước này thì `sitemap.xml` sẽ trỏ sai địa chỉ.
+- [x] Đặt biến `NEXT_PUBLIC_SITE_URL` bằng địa chỉ thật của website. — **Đã đặt** `https://ntt-website-five.vercel.app`, kiểm ngày 22/07/2026: `sitemap.xml` khai báo đủ 26 URL đúng địa chỉ, `robots.txt` chặn `/admin`. **Phải làm lại khi đổi sang tên miền riêng** — xem mục 12.
 - [ ] **Đăng ký Cloudflare Turnstile** (miễn phí) để chống tin nhắn rác ở form Liên hệ — xem hướng dẫn từng bước ở mục 11 bên dưới.
 
 ## 11. Cloudflare Turnstile — chống tin nhắn rác
@@ -201,3 +201,41 @@ Phần kỹ thuật đã dựng sẵn trong dự án và đã kiểm chứng:
 - **Nhật ký hệ thống** (menu chỉ hiện với Admin) ghi lại ai sửa gì, lúc nào. Không sửa/xoá được, kể cả Admin.
 - Website đã bật các lớp bảo vệ trình duyệt (CSP, HSTS…). Bước siết chặt hơn nữa trong tương lai: chuyển CSP sang dùng "nonce" — cần người có kỹ thuật làm.
 - Thống kê truy cập dùng Vercel Web Analytics: **không dùng cookie**, không nhận diện cá nhân — vì vậy website **không cần** banner xin phép cookie.
+
+## 12. Đổi sang tên miền riêng
+
+Làm khi bạn mua tên miền thật (ví dụ `nguyentuanthinh.com`). Chưa có thì bỏ qua.
+
+Thứ tự dưới đây quan trọng — làm sai thứ tự thì Google có thể ghi nhận sai địa chỉ.
+
+1. **Gắn tên miền vào Vercel**
+   Settings → **Domains** → **Add** → nhập tên miền → Vercel hiện các bản ghi DNS
+   cần khai báo. Vào nơi bạn mua tên miền, thêm đúng các bản ghi đó. Chờ Vercel
+   báo **Valid Configuration** (thường vài phút, có khi tới 24 giờ).
+
+2. **Đổi biến `NEXT_PUBLIC_SITE_URL`**
+   Settings → Environment Variables → sửa giá trị thành địa chỉ mới,
+   ví dụ `https://nguyentuanthinh.com`.
+   - **Có `https://` ở đầu, KHÔNG có dấu `/` ở cuối.**
+   - Tick đủ **cả ba** môi trường.
+
+3. **Deploy lại**, bỏ tick *Use existing Build Cache*.
+   Bắt buộc: biến `NEXT_PUBLIC_` được nhúng lúc build.
+
+4. **Thêm tên miền mới vào Cloudflare Turnstile**
+   dash.cloudflare.com → Turnstile → widget `NTT Website` → **Settings** →
+   thêm tên miền mới vào **Hostnames**. Quên bước này thì ô kiểm tra ở form
+   Liên hệ sẽ báo lỗi và **không ai gửi được lời nhắn**.
+
+5. **Kiểm tra lại** — mở hai địa chỉ này trên trình duyệt:
+   - `https://<tên miền mới>/sitemap.xml` — mọi dòng `<loc>` phải mang tên miền
+     **mới**. Còn thấy `vercel.app` nghĩa là bước 2 hoặc 3 chưa xong.
+   - `https://<tên miền mới>/robots.txt` — dòng `Sitemap:` cũng phải là tên miền mới.
+
+6. **Khai báo với Google** (không bắt buộc, nhưng nên làm)
+   search.google.com/search-console → thêm tên miền mới → mục **Sitemaps** →
+   nộp địa chỉ `sitemap.xml`.
+
+> Địa chỉ cũ `ntt-website-five.vercel.app` vẫn hoạt động sau khi gắn tên miền
+> riêng. Vercel tự chuyển hướng sang tên miền chính, nên link cũ ai đó đã lưu
+> vẫn vào được.
