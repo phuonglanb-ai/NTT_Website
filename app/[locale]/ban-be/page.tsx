@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { getPublishedFriends } from "@/lib/content/friends";
+import { Paragraphs } from "@/components/ui/paragraphs";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("friendsPage");
+  return { title: t("metaTitle"), description: t("metaDescription") };
+}
 
 export default async function FriendsPage({
   params,
@@ -15,8 +22,14 @@ export default async function FriendsPage({
 
   return (
     <section className="mx-auto max-w-3xl px-6 py-20">
-      <h1 className="font-serif text-3xl">{t("title")}</h1>
-      <p className="mt-3 text-text-muted">{t("intro")}</p>
+      <h1 className="font-serif text-3xl uppercase tracking-[0.14em]">{t("title")}</h1>
+      <Paragraphs text={t("intro")} className="mt-6 text-text-muted" />
+
+      {/* Mien tru trach nhiem: bai cua ban huu la contributor voice, khong phai
+          phat ngon cua nghe si (CLAUDE.md muc 7). */}
+      <p className="mt-8 border-l-2 border-white/20 pl-4 text-sm italic text-text-muted">
+        {t("disclaimer")}
+      </p>
 
       {friends.length === 0 ? (
         <p className="mt-16 border border-dashed border-white/15 px-6 py-10 text-center text-text-muted">
@@ -51,6 +64,11 @@ export default async function FriendsPage({
                     {friend.contributions.map((c) => (
                       <div key={c.id} className="border-l-2 border-accent-cobalt pl-4">
                         <h3 className="font-serif text-lg">{isEn ? c.titleEn : c.titleVi}</h3>
+                        {/* Ten tac gia hien ngay duoi tieu de -- moi bai deu
+                            phai truy duoc ve nguoi viet. */}
+                        <p className="mt-1 text-xs uppercase tracking-[0.18em] text-text-muted">
+                          {friend.name}
+                        </p>
                         {(isEn ? c.bodyEn : c.bodyVi) && (
                           <p className="mt-2 whitespace-pre-wrap text-text-muted">
                             {isEn ? c.bodyEn : c.bodyVi}

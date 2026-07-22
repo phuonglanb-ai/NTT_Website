@@ -43,6 +43,7 @@ export type ArtworkDetail = ArtworkListItem & {
   artistQuoteVi: string | null;
   artistQuoteEn: string | null;
   ownershipStatus: string;
+  exhibitionStatus: string;
   images: ArtworkImage[];
 };
 
@@ -81,8 +82,13 @@ function pickPrimaryImage(images: ArtworkImage[]) {
   return images.find((img) => img.isPrimary) ?? images[0] ?? null;
 }
 
+/**
+ * Danh sach tac pham da xuat ban.
+ * `collection = null` -> lay TOAN BO tac pham (trang "Toan bo tac pham"),
+ * khong loc theo coi.
+ */
 export async function getPublishedArtworks(
-  collection: CollectionSlug,
+  collection: CollectionSlug | null,
   { page = 1, type, year }: { page?: number; type?: string; year?: number },
 ) {
   const supabase = await createClient();
@@ -94,9 +100,9 @@ export async function getPublishedArtworks(
       { count: "exact" },
     )
     .eq("status", "published")
-    .eq("collections.slug", collection)
     .order("year", { ascending: false });
 
+  if (collection) query = query.eq("collections.slug", collection);
   if (type) query = query.eq("type", type);
   if (year) query = query.eq("year", year);
 
@@ -108,6 +114,7 @@ export async function getPublishedArtworks(
   const items: ArtworkListItem[] = (data ?? []).map((row) => {
     const images = mapImages(supabase, row.artwork_images ?? []);
     const primary = pickPrimaryImage(images);
+    const rowCollection = Array.isArray(row.collections) ? row.collections[0] : row.collections;
     return {
       id: row.id,
       code: row.code,
@@ -116,7 +123,7 @@ export async function getPublishedArtworks(
       year: row.year,
       type: row.type,
       status: row.status,
-      collectionSlug: collection,
+      collectionSlug: collection ?? rowCollection?.slug ?? "",
       primaryImageUrl: primary?.webUrl ?? null,
       primaryImageAltVi: primary?.altTextVi ?? null,
       primaryImageAltEn: primary?.altTextEn ?? null,
@@ -139,7 +146,7 @@ export async function getArtworkDetail(
   const { data, error } = await supabase
     .from("artworks")
     .select(
-      `id, code, title_vi, title_en, year, type, status, ownership_status,
+      `id, code, title_vi, title_en, year, type, status, ownership_status, exhibition_status,
        dimensions, dominant_colors,
        desc_objective_vi, desc_objective_en,
        artist_note_vi, artist_note_en,
@@ -189,6 +196,7 @@ export async function getArtworkDetail(
     artistQuoteVi: data.artist_quote_vi,
     artistQuoteEn: data.artist_quote_en,
     ownershipStatus: data.ownership_status,
+    exhibitionStatus: data.exhibition_status,
     images,
   };
 }

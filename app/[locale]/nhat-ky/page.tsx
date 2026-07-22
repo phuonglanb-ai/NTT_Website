@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { getJournalFeed } from "@/lib/content/journal";
+import { Paragraphs } from "@/components/ui/paragraphs";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("journal");
+  return { title: t("metaTitle"), description: t("metaDescription") };
+}
 
 const KIND_KEY: Record<string, string> = {
   news: "kindNews",
@@ -27,8 +34,8 @@ export default async function JournalPage({
 
   return (
     <section className="mx-auto max-w-3xl px-6 py-20">
-      <h1 className="font-serif text-3xl">{t("title")}</h1>
-      <p className="mt-3 text-text-muted">{t("intro")}</p>
+      <h1 className="font-serif text-3xl uppercase tracking-[0.14em]">{t("title")}</h1>
+      <Paragraphs text={t("intro")} className="mt-6 text-text-muted" />
 
       {items.length === 0 ? (
         <p className="mt-16 border border-dashed border-white/15 px-6 py-10 text-center text-text-muted">

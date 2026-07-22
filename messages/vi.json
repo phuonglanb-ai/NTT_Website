@@ -3,79 +3,128 @@
     "home": "Trang chủ",
     "artist": "Nghệ sĩ",
     "artworks": "Tác phẩm",
-    "journal": "Nhật ký",
-    "friends": "Góc bạn bè",
-    "contact": "Liên hệ"
+    "allArtworks": "Toàn bộ tác phẩm",
+    "journal": "Nhật ký xưởng",
+    "friends": "Bạn hữu & Đối thoại",
+    "contact": "Liên hệ riêng"
   },
   "collections": {
     "nang": {
-      "name": "Thế giới của Nàng",
-      "note": "Nude, tính nữ — lõi thương hiệu. Tĩnh lặng, không bình luận."
+      "name": "Nàng",
+      "note": "Hình thể, ký ức, khát vọng và vẻ đẹp tính nữ.",
+      "intro": "Nàng là không gian dành cho những tác phẩm về hình thể nữ trong hội họa, điêu khắc và ký họa của Nguyễn Tuấn Thịnh.\n\nỞ đây, cơ thể không được tiếp cận như một đối tượng để phô bày. Qua màu nguyên chất, tương phản mạnh, kỹ thuật bóp hình và sự nhấn mạnh vào đường cong, bàn tay, bàn chân hay những chuyển động nhỏ của cơ thể, người phụ nữ hiện lên như một hiện diện sống động — gần gũi nhưng không thể nắm bắt trọn vẹn.\n\nBút pháp có thể mạnh, hình thể có thể trực diện, nhưng thái độ xuyên suốt vẫn là sự nâng niu và tôn trọng. Tác phẩm không khép lại bằng một cách hiểu duy nhất; chúng để lại một khoảng mở để người xem tự gặp lấy hình bóng, ký ức hoặc cảm nhận của riêng mình.",
+      "artistNote": "Tôi không vẽ người phụ nữ. Tôi vẽ cảm nhận của mình về thế giới của họ — một thế giới mà tôi được phép nhìn ngắm, đôi khi được phép chạm tới, và luôn khao khát được thấu hiểu trọn vẹn hơn bằng tất cả sự tò mò, say mê và rung động của một người nghệ sĩ.\n\nBất kể được biểu đạt bằng hình thức nào, bên trong mỗi tác phẩm của tôi luôn là sự dịu dàng, nâng niu và trân trọng dành cho vẻ đẹp thiên tạo đầy tính nữ của người đàn bà — khởi nguồn của mọi tình yêu thế gian.\n\nTôi muốn để ngỏ trong các tác phẩm của mình một lời mời, để bạn tự mang vào đó người đàn bà của riêng mình: người bạn đã hay đang yêu, đã hay từng gặp trong đời, người bạn mong ước sẽ được gặp, hoặc chính bạn — ngay trong khoảnh khắc này của đời sống thực tại.\n\nKhi trái tim bạn rung lên, khi ấy bạn biết mình đã gặp được “Nàng”.",
+      "explore": "Khám phá “Nàng”",
+      "metaTitle": "Nàng | Nguyễn Tuấn Thịnh",
+      "metaDescription": "Hội họa, điêu khắc và ký họa về hình thể nữ, vẻ đẹp tính nữ, ký ức và cảm nhận trong nghệ thuật Nguyễn Tuấn Thịnh."
     },
     "doi": {
-      "name": "Rung cảm Đời sống",
-      "note": "Đời sống, phong cảnh, chân dung."
+      "name": "Rung cảm đời sống",
+      "note": "Cảnh vật, kiến trúc và những miền ký ức nơi con người đã sống và đi qua.",
+      "intro": "Rung cảm đời sống tập hợp những tác phẩm về phong cảnh, mái nhà, làng xóm, rừng, phố, kiến trúc và đời sống con người.\n\nCảnh vật trong tranh Nguyễn Tuấn Thịnh hiếm khi chỉ là sự ghi chép về một địa điểm. Qua quá trình giản lược, bóp hình và tái cấu trúc, những nơi chốn quen thuộc dần mang hình hài của ký ức. Một dãy nhà, một khoảng rừng hay một cấu trúc đô thị có thể vừa giữ dấu vết của thực tại, vừa trở thành một không gian nội tâm.\n\nTrong mạch sáng tác này, tự nhiên và kiến tạo của con người đôi khi hòa vào nhau, đôi khi đối lập. Chính khoảng căng giữa chúng tạo nên cảm giác vừa quen thuộc, vừa xa vắng trong tác phẩm.",
+      "explore": "Khám phá “Rung cảm đời sống”",
+      "metaTitle": "Rung cảm đời sống | Nguyễn Tuấn Thịnh",
+      "metaDescription": "Phong cảnh, mái nhà, rừng, phố, kiến trúc và những miền ký ức trong tác phẩm Nguyễn Tuấn Thịnh."
     },
     "hon-mang": {
       "name": "Hỗn mang & Trật tự",
-      "note": "Trừu tượng, thử nghiệm, bóp dáng."
+      "note": "Những thử nghiệm về màu sắc, cấu trúc, biến dạng và vật chất.",
+      "intro": "Hỗn mang & Trật tự là khoảng mở dành cho các tác phẩm trừu tượng, bán trừu tượng và những thử nghiệm vượt ra ngoài một hình thức biểu đạt ổn định.\n\nỞ đây, màu sắc, mặt phẳng, khối và nhịp điệu được giải phóng khỏi nhiệm vụ mô tả. Hình thể có thể bị kéo lệch, chia cắt hoặc gần như biến mất; nhưng phía sau cảm giác ngẫu hứng vẫn tồn tại một quá trình tổ chức chặt chẽ.\n\nHỗn mang và trật tự không phải hai trạng thái loại trừ nhau. Chúng liên tục hoán đổi vị trí trong quá trình sáng tác: bản năng mở đường, còn kinh nghiệm và kỷ luật quyết định điểm dừng.",
+      "explore": "Xem các thử nghiệm",
+      "metaTitle": "Hỗn mang & Trật tự | Nguyễn Tuấn Thịnh",
+      "metaDescription": "Các tác phẩm trừu tượng và thử nghiệm về màu sắc, cấu trúc, hình thể và vật chất của Nguyễn Tuấn Thịnh."
     }
   },
   "home": {
-    "eyebrow": "Nguyễn Tuấn Thịnh — Họa sĩ",
-    "statement": "Tôi không vẽ người phụ nữ. Tôi vẽ cảm nhận của mình về thế giới của họ…",
-    "cta": "Bước vào ba cõi"
+    "name": "Nguyễn Tuấn Thịnh",
+    "discipline": "Hội họa & Điêu khắc",
+    "tagline": "Thân thể. Ký ức. Những miền sống.",
+    "lead": "Từ hình thể người đến cảnh quan, kiến trúc và trừu tượng, Nguyễn Tuấn Thịnh tìm kiếm nhịp sống bên trong màu sắc, đường nét và khối.",
+    "ctaArtworks": "Khám phá tác phẩm",
+    "ctaArtist": "Về nghệ sĩ",
+    "intro": "Nguyễn Tuấn Thịnh là họa sĩ sống và làm việc tại Hà Nội. Trong thực hành nghệ thuật của ông, hình thể, cảnh vật và ký ức không được tái hiện như những đối tượng đứng yên, mà được nén lại, bóp hình, giản lược và tổ chức lại bằng màu sắc, nhịp điệu và cảm nhận trực tiếp.\n\nMàu nguyên chất, tương phản mạnh và những cấu trúc hình thể quyết liệt tạo nên sức căng thị giác trong tác phẩm. Nhưng phía sau sự mạnh bạo ấy vẫn là một thái độ quan sát gần gũi: sự trân trọng đối với thân thể, con người và những miền sống đã đi qua.",
+    "introCta": "Đọc thêm về nghệ sĩ",
+    "realmsTitle": "Ba cõi sáng tác",
+    "realmsLead": "Ba cõi không phải những đường biên khép kín. Chúng là ba lối đi vào thế giới nghệ thuật Nguyễn Tuấn Thịnh — nơi một tác phẩm có thể đồng thời mang dấu vết của hình thể, đời sống, ký ức và trừu tượng.",
+    "studioTitle": "Từ xưởng họa",
+    "studioLead": "Những ghi chép ngắn về tác phẩm đang hình thành, vật liệu, công cụ và quá trình làm việc trong xưởng; cùng thông tin về triển lãm, hoạt động nghệ thuật và những dấu mốc trong hành trình sáng tác.",
+    "studioCta": "Đọc Nhật ký xưởng",
+    "contactTitle": "Một cuộc gặp gỡ từ tác phẩm",
+    "contactLead": "Để trao đổi về tác phẩm, đề nghị triển lãm, nghiên cứu, hợp tác chuyên môn hoặc đặt lịch thăm xưởng, vui lòng gửi lời nhắn qua kênh liên hệ riêng.",
+    "contactCta": "Gửi liên hệ riêng"
   },
   "artworksOverview": {
     "title": "Tác phẩm",
-    "intro": "Ba cõi cảm xúc — điều hướng chính. Trường phái, chất liệu, chủ đề chỉ là bộ lọc bên trong mỗi cõi."
+    "intro": "Kho tác phẩm được tổ chức theo ba cõi sáng tác mở: Nàng, Rung cảm đời sống và Hỗn mang & Trật tự. Đây không phải những phân loại tuyệt đối, mà là các tuyến tiếp cận giúp người xem đi vào những mối quan tâm nổi bật trong thực hành của nghệ sĩ.\n\nCó thể tiếp tục tìm kiếm theo loại hình, chất liệu, thời gian, series hoặc chủ đề.",
+    "realmsHeading": "Ba cõi sáng tác",
+    "typesHeading": "Theo loại hình",
+    "allWorks": "Toàn bộ tác phẩm",
+    "metaTitle": "Tác phẩm | Nguyễn Tuấn Thịnh",
+    "metaDescription": "Khám phá tác phẩm của Nguyễn Tuấn Thịnh qua ba cõi sáng tác: Nàng, Rung cảm đời sống và Hỗn mang & Trật tự."
   },
   "collectionPage": {
-    "empty": "Chưa có tác phẩm nào được xuất bản trong cõi này.",
-    "error": "Không tải được danh mục tác phẩm. Vui lòng thử lại sau.",
-    "loading": "Đang tải tác phẩm…",
+    "empty": "Không gian này đang được hoàn thiện. Các tác phẩm sẽ được giới thiệu sau khi thông tin và hình ảnh được xác minh.",
+    "noResults": "Không tìm thấy tác phẩm phù hợp với lựa chọn hiện tại.",
+    "error": "Nội dung chưa thể hiển thị vào lúc này. Vui lòng thử lại sau.",
+    "loading": "Đang mở không gian tác phẩm…",
+    "count": "Hiển thị {count} tác phẩm",
     "prev": "‹ Trước",
     "next": "Sau ›",
     "pageOf": "Trang {page} / {totalPages}"
   },
   "filters": {
     "typeLabel": "Loại hình",
-    "yearLabel": "Năm",
-    "allTypes": "Tất cả loại hình",
-    "submit": "Lọc"
+    "yearLabel": "Năm sáng tác",
+    "allTypes": "Tất cả",
+    "submit": "Lọc",
+    "clear": "Xóa bộ lọc"
   },
   "artworkTypes": {
-    "painting": "Tranh",
+    "painting": "Tranh giá vẽ",
     "sculpture": "Điêu khắc",
     "sketch": "Ký họa",
-    "other": "Khác"
+    "other": "Thực hành khác"
   },
-  "ownershipStatus": {
-    "available": "Còn",
-    "notAvailable": "Đã thuộc sưu tập"
+  "artworkStatus": {
+    "label": "Tình trạng",
+    "inStudio": "Hiện diện tại xưởng",
+    "onDisplay": "Đang trưng bày",
+    "inCollection": "Thuộc bộ sưu tập riêng",
+    "onRequest": "Thông tin theo yêu cầu"
   },
   "common": {
     "retry": "Thử lại"
   },
   "artworkDetail": {
     "notFound": "Không tìm thấy tác phẩm.",
-    "error": "Không tải được tác phẩm. Vui lòng thử lại sau.",
-    "loading": "Đang tải…",
+    "error": "Nội dung chưa thể hiển thị vào lúc này. Vui lòng thử lại sau.",
+    "loading": "Đang mở không gian tác phẩm…",
     "fullView": "Toàn cảnh",
     "detailView": "Chi tiết cảm xúc",
+    "codeLabel": "Mã tác phẩm",
+    "yearLabel": "Năm sáng tác",
+    "mediumLabel": "Chất liệu",
+    "dimensionsLabel": "Kích thước",
+    "typeLabel": "Loại hình",
+    "collectionLabel": "Cõi sáng tác",
     "objectiveLabel": "Mô tả",
-    "artistNoteLabel": "Lời nghệ sĩ",
-    "criticNoteLabel": "Bình luận",
-    "contextLabel": "Bối cảnh",
+    "artistNoteLabel": "Ghi chú của Nghệ sĩ về tác phẩm",
+    "editorialNoteLabel": "Ghi chú biên tập",
+    "criticNoteLabel": "Phê bình & Đối thoại",
+    "missingData": "Thông tin đang được xác minh và cập nhật.",
+    "askAboutWork": "Hỏi về tác phẩm",
     "backToCollection": "← Quay lại danh mục"
   },
   "placeholderPage": {
     "comingSoon": "Nội dung đang được chuẩn bị."
   },
   "friendsPage": {
-    "title": "Góc bạn bè",
-    "intro": "Nghệ sĩ, bạn hữu và những góc nhìn được chia sẻ.",
-    "empty": "Nội dung đang được cập nhật."
+    "title": "Bạn hữu & Đối thoại",
+    "intro": "Nghệ thuật không chỉ tồn tại giữa nghệ sĩ và tác phẩm. Nó còn được tiếp tục trong ký ức, cách nhìn và những cuộc trò chuyện của những người đã gặp gỡ, làm việc hoặc đồng hành cùng nghệ sĩ.\n\nBạn hữu & Đối thoại tập hợp các bài viết, cuộc trò chuyện, hồi ức và góc nhìn của đồng nghiệp, nhà nghiên cứu, người sưu tập, người mẫu, bạn hữu và những người quan tâm đến nghệ thuật Nguyễn Tuấn Thịnh.",
+    "disclaimer": "Mỗi đóng góp thể hiện quan điểm riêng của tác giả. Việc xuất hiện trên website không có nghĩa Nguyễn Tuấn Thịnh nhất thiết đồng thuận với toàn bộ nhận định được trình bày.",
+    "empty": "Chưa có nội dung nào được xuất bản.",
+    "metaTitle": "Bạn hữu & Đối thoại | Nguyễn Tuấn Thịnh",
+    "metaDescription": "Bài viết, trò chuyện, hồi ức và góc nhìn của bạn hữu, đồng nghiệp và người quan tâm đến nghệ thuật Nguyễn Tuấn Thịnh."
   },
   "search": {
     "title": "Tìm kiếm",
@@ -83,63 +132,84 @@
     "placeholder": "Tìm tác phẩm theo tên hoặc từ khóa…",
     "submit": "Tìm",
     "resultsFor": "Kết quả cho “{q}”",
-    "empty": "Không tìm thấy tác phẩm phù hợp.",
+    "empty": "Không tìm thấy tác phẩm phù hợp với lựa chọn hiện tại.",
     "prompt": "Nhập từ khóa để tìm tác phẩm.",
-    "loading": "Đang tìm…"
+    "loading": "Đang mở không gian tác phẩm…"
   },
   "artistPage": {
     "title": "Nghệ sĩ",
-    "bio": "Tiểu sử",
-    "statement": "Tuyên ngôn nghệ thuật",
-    "journey": "Hành trình sáng tác",
+    "role": "Họa sĩ",
+    "bio": "Giới thiệu nghệ sĩ",
+    "statement": "Lời nghệ sĩ",
+    "journey": "Tiểu sử & Hành trình nghệ thuật",
     "exhibitions": "Triển lãm & giải thưởng",
     "press": "Báo chí viết về nghệ sĩ",
     "empty": "Nội dung đang được cập nhật.",
-    "readSource": "Đọc bài gốc ↗"
+    "readSource": "Đọc bài gốc ↗",
+    "metaTitle": "Nghệ sĩ Nguyễn Tuấn Thịnh | Tiểu sử & Thực hành nghệ thuật",
+    "metaDescription": "Tiểu sử, quá trình đào tạo, hoạt động triển lãm và những mạch quan tâm chính trong thực hành hội họa – điêu khắc của Nguyễn Tuấn Thịnh."
   },
   "journal": {
-    "title": "Nhật ký",
-    "intro": "Tin tức, triển lãm, góc nhìn và hậu trường sáng tác.",
-    "empty": "Chưa có bài viết nào được xuất bản.",
-    "error": "Không tải được nhật ký. Vui lòng thử lại sau.",
+    "title": "Nhật ký xưởng · Tin tức · Triển lãm",
+    "intro": "Nhật ký xưởng ghi lại những gì thường nằm ngoài bề mặt hoàn chỉnh của tác phẩm: một ý tưởng đang hình thành, một lần thay đổi bố cục, vật liệu đang được thử nghiệm, những công cụ đã qua sử dụng và nhịp làm việc thường ngày của nghệ sĩ.\n\nĐây không phải nơi giải thích mọi tác phẩm. Đó là những ghi chép rời nhưng chân thực về quá trình làm nghề — nơi trực giác, sức vóc, kinh nghiệm và kỷ luật cùng tham gia vào sự hình thành của tranh và tượng. Trang này cũng đăng thông tin về triển lãm, hoạt động chuyên môn và các sự kiện liên quan đến Nguyễn Tuấn Thịnh.",
+    "empty": "Chưa có ghi chép nào được xuất bản.",
+    "error": "Nội dung chưa thể hiển thị vào lúc này. Vui lòng thử lại sau.",
     "loading": "Đang tải…",
-    "readMore": "Đọc tiếp →",
-    "backToJournal": "← Quay lại Nhật ký",
+    "readMore": "Đọc bài →",
+    "backToJournal": "← Quay lại Nhật ký xưởng",
     "kindNews": "Tin tức",
-    "kindJournal": "Góc nhìn",
+    "kindJournal": "Ghi chép xưởng",
     "kindCriticism": "Phê bình",
     "kindExhibition": "Triển lãm",
     "notFound": "Không tìm thấy bài viết.",
     "prev": "‹ Trước",
     "next": "Sau ›",
-    "pageOf": "Trang {page} / {totalPages}"
+    "pageOf": "Trang {page} / {totalPages}",
+    "metaTitle": "Nhật ký xưởng · Tin tức · Triển lãm | Nguyễn Tuấn Thịnh",
+    "metaDescription": "Ghi chép từ xưởng họa, thông tin triển lãm, hoạt động chuyên môn và các sự kiện liên quan đến Nguyễn Tuấn Thịnh."
   },
   "contact": {
-    "title": "Liên hệ",
-    "intro": "Gửi cảm nhận, câu hỏi hoặc yêu cầu tìm hiểu tác phẩm. Nghệ sĩ / quản lý sẽ phản hồi riêng.",
+    "title": "Liên hệ riêng",
+    "intro": "Vui lòng sử dụng biểu mẫu dưới đây để trao đổi về tác phẩm, triển lãm, nghiên cứu, hợp tác chuyên môn hoặc đề nghị thăm xưởng.",
+    "priceNote": "Thông tin về tình trạng tác phẩm và giá được trao đổi riêng, không công bố trên website.",
     "name": "Họ và tên",
     "email": "Email",
-    "message": "Lời nhắn",
-    "submit": "Gửi",
+    "message": "Nội dung liên hệ",
+    "submit": "Gửi lời nhắn",
     "sending": "Đang gửi…",
-    "success": "Cảm ơn bạn. Lời nhắn đã được gửi, chúng tôi sẽ phản hồi sớm.",
-    "error": "Không gửi được. Vui lòng kiểm tra lại thông tin và thử lại.",
-    "required": "Vui lòng điền đầy đủ họ tên, email và lời nhắn.",
-    "rateLimited": "Bạn vừa gửi một lời nhắn. Vui lòng thử lại sau ít phút."
+    "success": "Lời nhắn đã được tiếp nhận. Chúng tôi sẽ phản hồi qua thông tin liên hệ bạn đã cung cấp.",
+    "error": "Chưa thể gửi lời nhắn. Vui lòng kiểm tra lại thông tin hoặc thử lại sau.",
+    "required": "Vui lòng điền đầy đủ họ tên, email và nội dung liên hệ.",
+    "rateLimited": "Bạn vừa gửi một lời nhắn. Vui lòng thử lại sau ít phút.",
+    "directTitle": "Họa sĩ Nguyễn Tuấn Thịnh",
+    "location": "Hà Nội, Việt Nam",
+    "phoneLabel": "Điện thoại",
+    "emailLabel": "Email",
+    "visitNote": "Việc thăm xưởng được thực hiện theo lịch hẹn trước.",
+    "metaTitle": "Liên hệ riêng | Nguyễn Tuấn Thịnh",
+    "metaDescription": "Kênh liên hệ riêng để trao đổi về tác phẩm, triển lãm, nghiên cứu, hợp tác chuyên môn hoặc đặt lịch thăm xưởng."
   },
   "admin": {
     "title": "Quản trị",
     "note": "Khu vực quản trị — sẽ được xây dựng cùng phân quyền ở các slice tiếp theo."
   },
   "footer": {
-    "rights": "Mọi hình ảnh thuộc bản quyền của nghệ sĩ.",
+    "tagline": "Hội họa & Điêu khắc",
+    "sitemapHeading": "Điều hướng",
+    "contactHeading": "Liên hệ",
+    "rights": "Mọi quyền được bảo lưu. Không sao chép, tái sử dụng, chỉnh sửa hoặc phát hành hình ảnh tác phẩm khi chưa có sự đồng ý bằng văn bản của chủ sở hữu quyền.",
     "privacy": "Chính sách quyền riêng tư",
     "imageTerms": "Điều khoản sử dụng hình ảnh"
   },
   "notFound": {
     "title": "Không tìm thấy trang",
-    "message": "Trang bạn tìm không tồn tại hoặc đã được chuyển đi.",
-    "backHome": "← Về trang chủ"
+    "message": "Địa chỉ bạn đang mở có thể đã thay đổi hoặc nội dung chưa được công bố.",
+    "backHome": "Trở về trang chủ",
+    "exploreArtworks": "Khám phá tác phẩm"
+  },
+  "meta": {
+    "homeTitle": "Nguyễn Tuấn Thịnh | Hội họa & Điêu khắc",
+    "homeDescription": "Website chính thức của họa sĩ Nguyễn Tuấn Thịnh, giới thiệu hội họa, điêu khắc, hành trình sáng tác, triển lãm, Nhật ký xưởng và các cuộc đối thoại nghệ thuật."
   },
   "a11y": {
     "skipToContent": "Chuyển tới nội dung chính",

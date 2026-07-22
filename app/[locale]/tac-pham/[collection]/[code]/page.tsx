@@ -3,7 +3,9 @@ import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { isCollectionSlug } from "@/lib/content/collections";
 import { getArtworkDetail } from "@/lib/content/artworks";
+import { artworkStatusKey } from "@/lib/content/artwork-status";
 import { DualModeViewer } from "@/components/artwork/dual-mode-viewer";
+import { Paragraphs } from "@/components/ui/paragraphs";
 import { Link } from "@/i18n/navigation";
 
 type PageParams = { locale: string; collection: string; code: string };
@@ -49,9 +51,11 @@ export default async function ArtworkDetailPage({
     notFound();
   }
 
-  const [t, tOwnership] = await Promise.all([
+  const [t, tStatus, tTypes, tCollections] = await Promise.all([
     getTranslations("artworkDetail"),
-    getTranslations("ownershipStatus"),
+    getTranslations("artworkStatus"),
+    getTranslations("artworkTypes"),
+    getTranslations("collections"),
   ]);
 
   const title = locale === "en" ? artwork.titleEn : artwork.titleVi;
@@ -61,8 +65,19 @@ export default async function ArtworkDetailPage({
   const criticNote = locale === "en" ? artwork.criticNoteEn : artwork.criticNoteVi;
   const context = locale === "en" ? artwork.contextEn : artwork.contextVi;
 
-  const ownershipLabel =
-    artwork.ownershipStatus === "available" ? tOwnership("available") : tOwnership("notAvailable");
+  const statusLabel = tStatus(
+    artworkStatusKey(artwork.ownershipStatus, artwork.exhibitionStatus),
+  );
+
+  const facts: { label: string; value: string }[] = [
+    { label: t("codeLabel"), value: artwork.code },
+    { label: t("yearLabel"), value: String(artwork.year) },
+    { label: t("mediumLabel"), value: medium ?? "" },
+    { label: t("dimensionsLabel"), value: artwork.dimensions ?? "" },
+    { label: t("typeLabel"), value: tTypes(artwork.type) },
+    { label: t("collectionLabel"), value: tCollections(`${collection}.name`) },
+    { label: tStatus("label"), value: statusLabel },
+  ].filter((fact) => fact.value !== "");
 
   const primaryImage = artwork.images.find((img) => img.isPrimary) ?? artwork.images[0] ?? null;
   const detailImages = artwork.images.filter((img) => !img.isPrimary);
@@ -86,26 +101,43 @@ export default async function ArtworkDetailPage({
         <DualModeViewer primaryImage={primaryImage} detailImages={detailImages} locale={locale} />
       </div>
 
-      <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-y border-white/10 py-4 text-sm">
-        <span className="text-text-muted">{ownershipLabel}</span>
-      </div>
+      {/* Nhan thong tin -- chi hien truong da co du lieu that */}
+      <dl className="mt-10 grid grid-cols-1 gap-x-8 gap-y-4 border-y border-white/10 py-6 text-sm sm:grid-cols-2">
+        {facts.map((fact) => (
+          <div key={fact.label} className="flex flex-wrap gap-x-3">
+            <dt className="text-text-muted">{fact.label}</dt>
+            <dd className="text-text">{fact.value}</dd>
+          </div>
+        ))}
+      </dl>
 
-      <div className="mt-10 flex flex-col gap-8 font-serif text-lg leading-relaxed">
+      <div className="mt-10 flex flex-col gap-10 leading-relaxed">
         {descObjective && (
           <section>
             <h2 className="font-sans text-xs uppercase tracking-widest text-text-muted">
               {t("objectiveLabel")}
             </h2>
-            <p className="mt-2">{descObjective}</p>
+            <Paragraphs text={descObjective} className="mt-3 font-serif text-lg" />
           </section>
         )}
 
+        {/* Loi nghe si: luon ghi ro tac gia, khong bao gio de van ban khac
+            dung o vi tri nay (CLAUDE.md -- An toan & liem chinh). */}
         {artistNote && (
           <section>
             <h2 className="font-sans text-xs uppercase tracking-widest text-text-muted">
               {t("artistNoteLabel")} — Nguyễn Tuấn Thịnh
             </h2>
-            <p className="mt-2 italic">{artistNote}</p>
+            <Paragraphs text={artistNote} className="mt-3 font-serif text-lg italic" />
+          </section>
+        )}
+
+        {context && (
+          <section>
+            <h2 className="font-sans text-xs uppercase tracking-widest text-text-muted">
+              {t("editorialNoteLabel")}
+            </h2>
+            <Paragraphs text={context} className="mt-3 font-serif text-lg" />
           </section>
         )}
 
@@ -115,18 +147,22 @@ export default async function ArtworkDetailPage({
               {t("criticNoteLabel")}
               {artwork.criticNoteAuthor ? ` — ${artwork.criticNoteAuthor}` : ""}
             </h2>
-            <p className="mt-2">{criticNote}</p>
+            <Paragraphs text={criticNote} className="mt-3 font-serif text-lg" />
           </section>
         )}
 
-        {context && (
-          <section>
-            <h2 className="font-sans text-xs uppercase tracking-widest text-text-muted">
-              {t("contextLabel")}
-            </h2>
-            <p className="mt-2">{context}</p>
-          </section>
+        {!descObjective && !artistNote && !context && !criticNote && (
+          <p className="text-sm text-text-muted">{t("missingData")}</p>
         )}
+      </div>
+
+      <div className="mt-14 border-t border-white/10 pt-8">
+        <Link
+          href="/lien-he"
+          className="inline-block border border-accent-cobalt px-6 py-3 text-sm text-text transition-colors hover:bg-accent-cobalt"
+        >
+          {t("askAboutWork")}
+        </Link>
       </div>
     </article>
   );
