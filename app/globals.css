@@ -2,7 +2,8 @@
 
 /*
  * Design tokens — docs/design-system.md
- * Dark-first sanctuary: nền tối để tranh tự phát sáng, chữ dùng làm khoảng thở.
+ * Dark-first sanctuary: nền charcoal giữ chiều sâu và độ tập trung cho tác phẩm,
+ * chữ dùng làm khoảng thở.
  */
 @theme {
   --color-bg: #0e0e10;

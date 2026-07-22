@@ -40,7 +40,7 @@ export default async function ContactPage() {
             </dd>
           </div>
         </dl>
-        <p className="mt-6 text-sm italic text-text-muted">{t("visitNote")}</p>
+        <p className="mt-6 text-sm text-text-muted">{t("visitNote")}</p>
       </div>
     </section>
   );

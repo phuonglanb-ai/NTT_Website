@@ -63,6 +63,23 @@ concept, kiểm thử trên tác phẩm thật và phê duyệt riêng.
 
 - **Serif — Playfair Display:** Artist Statement, tự sự, tiêu đề tác phẩm, bình giải.
 - **Sans — Inter:** mã ID, kích thước, chất liệu, UI, chú thích kỹ thuật.
+
+### Quy tắc chữ nghiêng — nghiêng là *tiếng nói của nghệ sĩ*
+
+Chữ nghiêng mang **một nghĩa duy nhất** trên toàn site: đoạn văn đó là **lời của
+Nguyễn Tuấn Thịnh**. Nhờ vậy người đọc phân biệt được giọng nói ngay bằng mắt,
+trước cả khi đọc nhãn — hỗ trợ trực tiếp cho yêu cầu phân tầng giọng văn ở
+`CLAUDE.md` mục 7.
+
+| Loại nội dung | Kiểu chữ |
+|---|---|
+| Lời nghệ sĩ (trang Nghệ sĩ, trang cõi, ghi chú tác phẩm) | **Serif nghiêng** |
+| Lời biên tập, lời dẫn, miễn trừ trách nhiệm, mô tả khách quan | Chữ đứng |
+| Bài của bạn hữu / khách mời | Chữ đứng (phân biệt bằng tên tác giả) |
+| Nhãn UI, nút, metadata kỹ thuật | Sans, chữ đứng |
+
+**Không** dùng nghiêng để nhấn mạnh chung chung, để làm mềm giao diện, hay cho
+ghi chú phụ. Mỗi lần dùng sai là một lần làm loãng tín hiệu.
 - *(Tùy chọn: **Aptima** — font ưa dùng của Lan — nếu muốn thống nhất nhận diện cá nhân. Mặc định vẫn Playfair + Inter: cặp chữ này giữ độ tương phản cảm xúc trên nền charcoal của không gian trưng bày, đồng thời vẫn đọc tốt trên các bề mặt sáng dùng cho văn bản dài.)*
 
 ## Bố cục & lưới
