@@ -34,41 +34,6 @@
   --font-sans: "Source Sans 3", system-ui, sans-serif;
 }
 
-/*
- * THỬ NGHIỆM SẮC NỀN — tạm thời, chỉ để so sánh trên Preview.
- *
- * Đổi giá trị token ngay lúc chạy bằng thuộc tính `data-bg` trên thẻ <html>.
- * Bốn phương án đều là gần-đen, độ bão hoà rất thấp: đủ để cảm nhận sắc,
- * không đủ để làm sai lệch màu tranh (CLAUDE.md §4).
- *
- * Độ tương phản gần như không đổi giữa bốn phương án (chữ ngà 16,4–16,9:1;
- * chữ mờ 7,4–7,6:1) vì cả bốn cùng độ sáng, chỉ khác sắc.
- *
- * GỠ BỎ toàn bộ khối này sau khi chốt phương án.
- */
-/* `data-bg` trên <html> đổi cả trang. `data-bg-sample` đổi trong một khối —
-   dùng ở trang so sánh để xem bốn nền cạnh nhau cùng lúc. */
-:root[data-bg="warm"],
-[data-bg-sample="warm"] {
-  --color-bg: #141110; /* A — nâu đen ấm, sắc phòng tranh */
-  --color-bg-elevated: #1c1917;
-}
-:root[data-bg="night"],
-[data-bg-sample="night"] {
-  --color-bg: #0c0f16; /* B — xanh đêm, nối với cobalt trong tranh */
-  --color-bg-elevated: #171b24;
-}
-:root[data-bg="forest"],
-[data-bg-sample="forest"] {
-  --color-bg: #0b0f0d; /* C — lục thẫm, nối với mảng rừng */
-  --color-bg-elevated: #151a17;
-}
-:root[data-bg="ink"],
-[data-bg-sample="ink"] {
-  --color-bg: #110e14; /* D — tím than, sắc mực */
-  --color-bg-elevated: #1b1720;
-}
-
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
