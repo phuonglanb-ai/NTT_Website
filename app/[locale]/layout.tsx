@@ -7,7 +7,16 @@ import { Analytics } from "@vercel/analytics/next";
 import { routing } from "@/i18n/routing";
 import { SiteNav } from "@/components/ui/site-nav";
 import { SiteFooter } from "@/components/ui/site-footer";
+import { BgTrialSwitcher } from "@/components/ui/bg-trial-switcher";
+import { BG_INIT_SCRIPT } from "@/lib/theme-trial";
 import "../globals.css";
+
+/**
+ * Thu nghiem sac nen: CHI bat ngoai production. Tren website that
+ * (VERCEL_ENV === "production") khong render gi ca, khong chen script nao.
+ * GO BO sau khi chot phuong an.
+ */
+const BG_TRIAL = process.env.VERCEL_ENV !== "production";
 
 /*
  * Bo ky tu `vietnamese` la BAT BUOC. Truoc day chi khai bao "latin", nen cac
@@ -62,18 +71,25 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} className={`${playfair.variable} ${bodySans.variable}`}>
+      {BG_TRIAL && (
+        <head>
+          {/* Gan sac nen da chon TRUOC khi ve trang, de khong bi nhay mau */}
+          <script dangerouslySetInnerHTML={{ __html: BG_INIT_SCRIPT }} />
+        </head>
+      )}
       <body className="bg-bg font-sans text-text antialiased">
         <NextIntlClientProvider>
           {/* Skip-link: an cho toi khi dung phim Tab -- WCAG 2.4.1 */}
           <a
             href="#main"
-            className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:border focus:border-accent-cobalt focus:bg-bg-elevated focus:px-4 focus:py-2 focus:text-text"
+            className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:border focus:border-accent-cobalt-bright focus:bg-bg-elevated focus:px-4 focus:py-2 focus:text-text"
           >
             {t("skipToContent")}
           </a>
           <SiteNav />
           <main id="main">{children}</main>
           <SiteFooter />
+          {BG_TRIAL && <BgTrialSwitcher />}
         </NextIntlClientProvider>
         <Analytics />
       </body>

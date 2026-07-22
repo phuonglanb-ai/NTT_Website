@@ -7,7 +7,7 @@ export default function AdminHomePage() {
       <div className="mt-10">
         <Link
           href="/admin/tac-pham"
-          className="inline-block border border-accent-cobalt px-5 py-2 text-sm text-text hover:bg-accent-cobalt"
+          className="inline-block border border-accent-cobalt-bright px-5 py-2 text-sm text-text hover:bg-accent-cobalt"
         >
           Quản lý tác phẩm
         </Link>

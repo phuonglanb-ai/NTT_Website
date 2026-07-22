@@ -52,14 +52,14 @@ export default async function JournalPage({
                   {t(KIND_KEY[entry.kind] ?? "kindJournal")}
                 </p>
                 <h2 className="mt-2 font-serif text-2xl">
-                  <Link href={`/nhat-ky/${entry.slug}`} className="hover:text-accent-cobalt">
+                  <Link href={`/nhat-ky/${entry.slug}`} className="hover:text-accent-cobalt-bright">
                     {title}
                   </Link>
                 </h2>
                 {excerpt && <p className="mt-3 text-text-muted">{excerpt}</p>}
                 <Link
                   href={`/nhat-ky/${entry.slug}`}
-                  className="mt-3 inline-block text-sm text-accent-cobalt hover:underline"
+                  className="mt-3 inline-block text-sm text-accent-cobalt-bright hover:underline"
                 >
                   {t("readMore")}
                 </Link>

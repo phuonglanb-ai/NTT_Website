@@ -7,7 +7,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { submitInquiry } from "@/app/[locale]/lien-he/actions";
 
 const fieldClass =
-  "w-full border border-white/15 bg-bg-elevated px-3 py-2 text-text outline-none focus:border-accent-cobalt";
+  "w-full border border-white/15 bg-bg-elevated px-3 py-2 text-text outline-none focus:border-accent-cobalt-bright";
 const labelClass = "text-sm text-text-muted";
 
 /**
@@ -46,7 +46,7 @@ export function ContactForm() {
 
   if (state?.ok) {
     return (
-      <p className="border border-accent-cobalt px-6 py-8 text-center text-text">
+      <p className="border border-accent-cobalt-bright px-6 py-8 text-center text-text">
         {t("success")}
       </p>
     );
@@ -119,7 +119,7 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={pending}
-          className="w-fit border border-accent-cobalt px-6 py-3 text-sm text-text transition-colors hover:bg-accent-cobalt disabled:opacity-50"
+          className="w-fit border border-accent-cobalt-bright px-6 py-3 text-sm text-text transition-colors hover:bg-accent-cobalt disabled:opacity-50"
         >
           {pending ? t("sending") : t("submit")}
         </button>

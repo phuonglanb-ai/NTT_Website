@@ -39,7 +39,7 @@ export function TypeFilter({
     [
       "border px-4 py-2 text-sm transition-colors",
       active
-        ? "border-accent-cobalt bg-accent-cobalt/20 text-text"
+        ? "border-accent-cobalt-bright bg-accent-cobalt/20 text-text"
         : "border-white/15 text-text-muted hover:border-white/40 hover:text-text",
     ].join(" ");
 

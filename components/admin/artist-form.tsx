@@ -5,7 +5,7 @@ import type { ArtistFormState } from "@/app/admin/(protected)/nghe-si/actions";
 import type { Artist } from "@/lib/content/artist";
 
 const fieldClass =
-  "w-full border border-white/15 bg-bg-elevated px-3 py-2 text-text outline-none focus:border-accent-cobalt";
+  "w-full border border-white/15 bg-bg-elevated px-3 py-2 text-text outline-none focus:border-accent-cobalt-bright";
 const labelClass = "text-sm text-text-muted";
 
 export function ArtistForm({
@@ -111,12 +111,12 @@ export function ArtistForm({
           {state.error}
         </p>
       )}
-      {state?.ok && <p className="text-sm text-accent-cobalt">Đã lưu thông tin nghệ sĩ.</p>}
+      {state?.ok && <p className="text-sm text-accent-cobalt-bright">Đã lưu thông tin nghệ sĩ.</p>}
 
       <button
         type="submit"
         disabled={pending}
-        className="w-fit border border-accent-cobalt px-6 py-3 text-sm text-text transition-colors hover:bg-accent-cobalt disabled:opacity-50"
+        className="w-fit border border-accent-cobalt-bright px-6 py-3 text-sm text-text transition-colors hover:bg-accent-cobalt disabled:opacity-50"
       >
         {pending ? "Đang lưu…" : "Lưu"}
       </button>

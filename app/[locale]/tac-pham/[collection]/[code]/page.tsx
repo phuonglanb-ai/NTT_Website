@@ -159,7 +159,7 @@ export default async function ArtworkDetailPage({
       <div className="mt-14 border-t border-white/10 pt-8">
         <Link
           href="/lien-he"
-          className="inline-block border border-accent-cobalt px-6 py-3 text-sm text-text transition-colors hover:bg-accent-cobalt"
+          className="inline-block border border-accent-cobalt-bright px-6 py-3 text-sm text-text transition-colors hover:bg-accent-cobalt"
         >
           {t("askAboutWork")}
         </Link>

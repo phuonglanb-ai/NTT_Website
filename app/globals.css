@@ -10,11 +10,63 @@
   --color-bg-elevated: #1a1a1d;
   --color-text: #f4efe6;
   --color-text-muted: #a8a29a;
+
+  /*
+   * HAI sắc cobalt, hai vai trò khác nhau — đừng dùng lẫn:
+   *
+   *   --color-accent-cobalt        #2B4F9E  chỉ dùng làm MẢNG ĐẶC (nền nút khi
+   *                                         hover). Chữ ngà trên nền này đạt
+   *                                         6,75:1.
+   *   --color-accent-cobalt-bright #6E96E0  dùng cho CHỮ, VIỀN, BIỂU TƯỢNG.
+   *
+   * Vì sao phải tách: cobalt đậm chỉ đạt 2,49:1 so với nền tối, trong khi
+   * WCAG 2.2 đòi 4,5:1 cho chữ thường và 3:1 cho thành phần giao diện. Trước
+   * đây nó bị dùng làm màu chữ cho các liên kết "Khám phá…", "Đọc bài →" —
+   * người mắt kém hoặc đọc ngoài nắng không nhìn ra. Sắc sáng đạt 6,36–6,53:1
+   * trên mọi phương án nền.
+   */
   --color-accent-cobalt: #2b4f9e;
+  --color-accent-cobalt-bright: #6e96e0;
+
   --color-accent-oxblood: #7a2320;
 
   --font-serif: "Playfair Display", Georgia, serif;
   --font-sans: "Source Sans 3", system-ui, sans-serif;
+}
+
+/*
+ * THỬ NGHIỆM SẮC NỀN — tạm thời, chỉ để so sánh trên Preview.
+ *
+ * Đổi giá trị token ngay lúc chạy bằng thuộc tính `data-bg` trên thẻ <html>.
+ * Bốn phương án đều là gần-đen, độ bão hoà rất thấp: đủ để cảm nhận sắc,
+ * không đủ để làm sai lệch màu tranh (CLAUDE.md §4).
+ *
+ * Độ tương phản gần như không đổi giữa bốn phương án (chữ ngà 16,4–16,9:1;
+ * chữ mờ 7,4–7,6:1) vì cả bốn cùng độ sáng, chỉ khác sắc.
+ *
+ * GỠ BỎ toàn bộ khối này sau khi chốt phương án.
+ */
+/* `data-bg` trên <html> đổi cả trang. `data-bg-sample` đổi trong một khối —
+   dùng ở trang so sánh để xem bốn nền cạnh nhau cùng lúc. */
+:root[data-bg="warm"],
+[data-bg-sample="warm"] {
+  --color-bg: #141110; /* A — nâu đen ấm, sắc phòng tranh */
+  --color-bg-elevated: #1c1917;
+}
+:root[data-bg="night"],
+[data-bg-sample="night"] {
+  --color-bg: #0c0f16; /* B — xanh đêm, nối với cobalt trong tranh */
+  --color-bg-elevated: #171b24;
+}
+:root[data-bg="forest"],
+[data-bg-sample="forest"] {
+  --color-bg: #0b0f0d; /* C — lục thẫm, nối với mảng rừng */
+  --color-bg-elevated: #151a17;
+}
+:root[data-bg="ink"],
+[data-bg-sample="ink"] {
+  --color-bg: #110e14; /* D — tím than, sắc mực */
+  --color-bg-elevated: #1b1720;
 }
 
 body {
@@ -24,11 +76,12 @@ body {
 
 /*
  * Focus rõ trên nền tối (WCAG 2.2 — 2.4.7 Focus Visible / 2.4.11 Focus
- * Not Obscured). Mặc định của trình duyệt quá mờ trên nền #0E0E10.
- * Dùng 2 lớp outline để thấy rõ trên cả vùng sáng lẫn vùng tối của tranh.
+ * Not Obscured). Mặc định của trình duyệt quá mờ trên nền gần đen.
+ * Dùng sắc cobalt SÁNG (6,4:1) chứ không phải cobalt đậm (2,5:1), cộng một
+ * vòng sáng thứ hai để thấy rõ trên cả vùng sáng lẫn vùng tối của tranh.
  */
 :focus-visible {
-  outline: 2px solid var(--color-accent-cobalt);
+  outline: 2px solid var(--color-accent-cobalt-bright);
   outline-offset: 2px;
   box-shadow: 0 0 0 4px rgb(244 239 230 / 0.35);
 }

@@ -22,7 +22,7 @@ export default async function AdminPeopleListPage() {
           </Link>
           <Link
             href="/admin/ban-be/moi"
-            className="border border-accent-cobalt px-4 py-2 text-sm text-text hover:bg-accent-cobalt"
+            className="border border-accent-cobalt-bright px-4 py-2 text-sm text-text hover:bg-accent-cobalt"
           >
             Thêm người
           </Link>
@@ -55,7 +55,7 @@ export default async function AdminPeopleListPage() {
                   )}
                 </td>
                 <td className="py-2 pr-4">
-                  <Link href={`/admin/ban-be/${p.id}`} className="hover:text-accent-cobalt">
+                  <Link href={`/admin/ban-be/${p.id}`} className="hover:text-accent-cobalt-bright">
                     {p.name}
                   </Link>
                 </td>
