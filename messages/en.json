@@ -3,37 +3,71 @@
     "home": "Home",
     "artist": "Artist",
     "artworks": "Artworks",
-    "journal": "Journal",
-    "friends": "Friends' Corner",
-    "contact": "Contact"
+    "allArtworks": "All artworks",
+    "journal": "Studio Journal",
+    "friends": "Friends & Dialogue",
+    "contact": "Private Contact"
   },
   "collections": {
     "nang": {
-      "name": "The World of Nàng",
-      "note": "Nude, femininity — the brand's core. Quiet, no comments."
+      "name": "Her",
+      "note": "Form, memory, longing and the beauty of the feminine.",
+      "intro": "Her is the space for Nguyễn Tuấn Thịnh's paintings, sculptures and sketches of the female form.\n\nHere the body is not approached as an object to be displayed. Through pure colour, strong contrast, the compression of form and an emphasis on curves, hands, feet and the smallest movements of the body, the woman emerges as a living presence — intimate, yet never fully graspable.\n\nThe brushwork can be forceful and the form direct, but the underlying attitude is one of tenderness and respect. The works do not close on a single reading; they leave an opening in which each viewer may meet a figure, a memory or a feeling of their own.",
+      "artistNote": "",
+      "explore": "Enter “Her”",
+      "metaTitle": "Her | Nguyễn Tuấn Thịnh",
+      "metaDescription": "Paintings, sculptures and sketches of the female form, femininity, memory and feeling in the art of Nguyễn Tuấn Thịnh."
     },
     "doi": {
       "name": "Vibrations of Life",
-      "note": "Everyday life, landscape, portraiture."
+      "note": "Landscape, architecture, and the remembered places people have lived and passed through.",
+      "intro": "Vibrations of Life gathers works about landscape, rooftops, villages, forests, streets, architecture and everyday human life.\n\nA place in Nguyễn Tuấn Thịnh's painting is rarely a record of a location. Through simplification, compression and restructuring, familiar places gradually take on the shape of memory. A row of houses, a stretch of forest or an urban structure can hold traces of the real while becoming an interior space.\n\nIn this body of work, nature and human construction sometimes merge and sometimes stand opposed. It is the tension between them that makes the works feel at once familiar and distant.",
+      "explore": "Enter “Vibrations of Life”",
+      "metaTitle": "Vibrations of Life | Nguyễn Tuấn Thịnh",
+      "metaDescription": "Landscape, rooftops, forests, streets, architecture and remembered places in the work of Nguyễn Tuấn Thịnh."
     },
     "hon-mang": {
       "name": "Chaos & Order",
-      "note": "Abstract, experimental, distorted form."
+      "note": "Experiments in colour, structure, distortion and material.",
+      "intro": "Chaos & Order is the open ground for abstract and semi-abstract works, and for experiments that move beyond any settled form of expression.\n\nHere colour, plane, mass and rhythm are released from the task of description. Form may be stretched, cut apart or almost disappear; yet behind the sense of improvisation there remains a rigorous process of organisation.\n\nChaos and order are not mutually exclusive states. They continually change places during the making: instinct opens the way, while experience and discipline decide where to stop.",
+      "explore": "See the experiments",
+      "metaTitle": "Chaos & Order | Nguyễn Tuấn Thịnh",
+      "metaDescription": "Abstract works and experiments in colour, structure, form and material by Nguyễn Tuấn Thịnh."
     }
   },
   "home": {
-    "eyebrow": "Nguyễn Tuấn Thịnh — Painter",
-    "statement": "I do not paint women. I paint my feeling of their world…",
-    "cta": "Enter the three realms"
+    "name": "Nguyễn Tuấn Thịnh",
+    "discipline": "Painting & Sculpture",
+    "tagline": "Body. Memory. Realms of living.",
+    "lead": "From the human figure to landscape, architecture and abstraction, Nguyễn Tuấn Thịnh searches for the pulse of life inside colour, line and mass.",
+    "ctaArtworks": "Explore the artworks",
+    "ctaArtist": "About the artist",
+    "intro": "Nguyễn Tuấn Thịnh is a painter living and working in Hanoi. In his practice, figures, places and memories are not reproduced as static subjects; they are compressed, distorted, simplified and reorganised through colour, rhythm and direct feeling.\n\nPure colour, strong contrast and forceful structures of form create the visual tension in his work. Behind that force, however, remains a close and attentive way of looking: a regard for the body, for people, and for the realms of living he has passed through.",
+    "introCta": "Read more about the artist",
+    "realmsTitle": "Three realms",
+    "realmsLead": "The three realms are not closed borders. They are three ways into the world of Nguyễn Tuấn Thịnh — where a single work may carry, at once, traces of the body, of daily life, of memory and of abstraction.",
+    "studioTitle": "From the studio",
+    "studioLead": "Short notes on works in progress, on materials, tools and the rhythm of studio work; together with news of exhibitions, professional activity and milestones along the artist's path.",
+    "studioCta": "Read the Studio Journal",
+    "contactTitle": "An encounter that begins with the work",
+    "contactLead": "To discuss a work, propose an exhibition, pursue research or professional collaboration, or arrange a studio visit, please write through the private contact channel.",
+    "contactCta": "Send a private message"
   },
   "artworksOverview": {
     "title": "Artworks",
-    "intro": "Three emotional realms — the primary navigation. Style, medium and theme are only filters within each realm."
+    "intro": "The archive is organised around three open realms: Her, Vibrations of Life, and Chaos & Order. These are not absolute categories but routes of approach, leading the viewer into the concerns that run through the artist's practice.\n\nYou may narrow further by type, medium, period, series or theme.",
+    "realmsHeading": "Three realms",
+    "typesHeading": "By type",
+    "allWorks": "All artworks",
+    "metaTitle": "Artworks | Nguyễn Tuấn Thịnh",
+    "metaDescription": "Explore the work of Nguyễn Tuấn Thịnh through three realms: Her, Vibrations of Life, and Chaos & Order."
   },
   "collectionPage": {
-    "empty": "No published artworks in this realm yet.",
-    "error": "Could not load the artwork listing. Please try again later.",
-    "loading": "Loading artworks…",
+    "empty": "This space is still being completed. Works will be shown once their information and images have been verified.",
+    "noResults": "No artworks match the current selection.",
+    "error": "This content cannot be shown at the moment. Please try again later.",
+    "loading": "Opening the artwork space…",
+    "count": "Showing {count} artworks",
     "prev": "‹ Prev",
     "next": "Next ›",
     "pageOf": "Page {page} / {totalPages}"
@@ -41,41 +75,56 @@
   "filters": {
     "typeLabel": "Type",
     "yearLabel": "Year",
-    "allTypes": "All types",
-    "submit": "Filter"
+    "allTypes": "All",
+    "submit": "Filter",
+    "clear": "Clear filters"
   },
   "artworkTypes": {
-    "painting": "Painting",
+    "painting": "Easel painting",
     "sculpture": "Sculpture",
     "sketch": "Sketch",
-    "other": "Other"
+    "other": "Other practice"
   },
-  "ownershipStatus": {
-    "available": "Available",
-    "notAvailable": "In a collection"
+  "artworkStatus": {
+    "label": "Status",
+    "inStudio": "Present in the studio",
+    "onDisplay": "On display",
+    "inCollection": "In a private collection",
+    "onRequest": "Information on request"
   },
   "common": {
     "retry": "Retry"
   },
   "artworkDetail": {
     "notFound": "Artwork not found.",
-    "error": "Could not load this artwork. Please try again later.",
-    "loading": "Loading…",
+    "error": "This content cannot be shown at the moment. Please try again later.",
+    "loading": "Opening the artwork space…",
     "fullView": "Full View",
     "detailView": "Emotional Detail",
+    "codeLabel": "Reference",
+    "yearLabel": "Year",
+    "mediumLabel": "Medium",
+    "dimensionsLabel": "Dimensions",
+    "typeLabel": "Type",
+    "collectionLabel": "Realm",
     "objectiveLabel": "Description",
-    "artistNoteLabel": "Artist's note",
-    "criticNoteLabel": "Critic's note",
-    "contextLabel": "Context",
+    "artistNoteLabel": "The artist's note on this work",
+    "editorialNoteLabel": "Editorial note",
+    "criticNoteLabel": "Criticism & Dialogue",
+    "missingData": "This information is being verified and updated.",
+    "askAboutWork": "Ask about this work",
     "backToCollection": "← Back to collection"
   },
   "placeholderPage": {
     "comingSoon": "Content is being prepared."
   },
   "friendsPage": {
-    "title": "Friends' Corner",
-    "intro": "The artist, friends, and shared perspectives.",
-    "empty": "Content is being updated."
+    "title": "Friends & Dialogue",
+    "intro": "Art does not exist only between the artist and the work. It continues in the memories, perspectives and conversations of those who have met, worked with, or walked alongside the artist.\n\nFriends & Dialogue gathers essays, conversations, recollections and viewpoints from colleagues, researchers, collectors, models, friends and others who care about the art of Nguyễn Tuấn Thịnh.",
+    "disclaimer": "Each contribution expresses the personal view of its author. Its presence on this website does not mean that Nguyễn Tuấn Thịnh necessarily agrees with everything it states.",
+    "empty": "No content has been published yet.",
+    "metaTitle": "Friends & Dialogue | Nguyễn Tuấn Thịnh",
+    "metaDescription": "Essays, conversations, recollections and perspectives from friends, colleagues and others engaged with the art of Nguyễn Tuấn Thịnh."
   },
   "search": {
     "title": "Search",
@@ -83,63 +132,84 @@
     "placeholder": "Search artworks by title or keyword…",
     "submit": "Search",
     "resultsFor": "Results for “{q}”",
-    "empty": "No matching artworks found.",
+    "empty": "No artworks match the current selection.",
     "prompt": "Enter a keyword to search artworks.",
-    "loading": "Searching…"
+    "loading": "Opening the artwork space…"
   },
   "artistPage": {
     "title": "Artist",
-    "bio": "Biography",
-    "statement": "Artist Statement",
-    "journey": "Creative Journey",
+    "role": "Painter",
+    "bio": "About the artist",
+    "statement": "The artist's words",
+    "journey": "Biography & Artistic path",
     "exhibitions": "Exhibitions & Awards",
     "press": "Press",
     "empty": "Content is being updated.",
-    "readSource": "Read original ↗"
+    "readSource": "Read original ↗",
+    "metaTitle": "Nguyễn Tuấn Thịnh | Biography & Practice",
+    "metaDescription": "Biography, training, exhibition history and the central concerns in the painting and sculpture practice of Nguyễn Tuấn Thịnh."
   },
   "journal": {
-    "title": "Journal",
-    "intro": "News, exhibitions, perspectives and studio notes.",
-    "empty": "No published entries yet.",
-    "error": "Could not load the journal. Please try again later.",
+    "title": "Studio Journal · News · Exhibitions",
+    "intro": "The Studio Journal records what usually lies outside the finished surface of a work: an idea taking shape, a change of composition, a material being tested, the tools that have been used, and the everyday rhythm of the artist's working life.\n\nThis is not a place where every work is explained. These are loose but honest notes on the craft — where instinct, physical effort, experience and discipline all take part in the making of a painting or a sculpture. This page also carries news of exhibitions, professional activity and events involving Nguyễn Tuấn Thịnh.",
+    "empty": "No entries have been published yet.",
+    "error": "This content cannot be shown at the moment. Please try again later.",
     "loading": "Loading…",
-    "readMore": "Read more →",
-    "backToJournal": "← Back to Journal",
+    "readMore": "Read the entry →",
+    "backToJournal": "← Back to the Studio Journal",
     "kindNews": "News",
-    "kindJournal": "Perspective",
+    "kindJournal": "Studio note",
     "kindCriticism": "Criticism",
     "kindExhibition": "Exhibition",
     "notFound": "Entry not found.",
     "prev": "‹ Prev",
     "next": "Next ›",
-    "pageOf": "Page {page} / {totalPages}"
+    "pageOf": "Page {page} / {totalPages}",
+    "metaTitle": "Studio Journal · News · Exhibitions | Nguyễn Tuấn Thịnh",
+    "metaDescription": "Notes from the studio, exhibition news, professional activity and events involving Nguyễn Tuấn Thịnh."
   },
   "contact": {
-    "title": "Contact",
-    "intro": "Send a thought, a question, or an inquiry about a work. The artist / manager will respond privately.",
+    "title": "Private Contact",
+    "intro": "Please use the form below to discuss a work, an exhibition, research, professional collaboration, or to request a studio visit.",
+    "priceNote": "The status and price of a work are discussed privately and are not published on this website.",
     "name": "Full name",
     "email": "Email",
-    "message": "Message",
-    "submit": "Send",
+    "message": "Your message",
+    "submit": "Send message",
     "sending": "Sending…",
-    "success": "Thank you. Your message has been sent; we'll respond soon.",
-    "error": "Could not send. Please check your details and try again.",
+    "success": "Your message has been received. We will reply using the contact details you provided.",
+    "error": "The message could not be sent. Please check your details or try again later.",
     "required": "Please fill in your name, email and message.",
-    "rateLimited": "You just sent a message. Please try again in a few minutes."
+    "rateLimited": "You have just sent a message. Please try again in a few minutes.",
+    "directTitle": "Nguyễn Tuấn Thịnh, painter",
+    "location": "Hanoi, Vietnam",
+    "phoneLabel": "Telephone",
+    "emailLabel": "Email",
+    "visitNote": "Studio visits are by prior appointment.",
+    "metaTitle": "Private Contact | Nguyễn Tuấn Thịnh",
+    "metaDescription": "A private channel to discuss a work, an exhibition, research, professional collaboration, or to arrange a studio visit."
   },
   "admin": {
     "title": "Admin",
     "note": "Admin area — will be built alongside role permissions in upcoming slices."
   },
   "footer": {
-    "rights": "All images are copyright of the artist.",
+    "tagline": "Painting & Sculpture",
+    "sitemapHeading": "Navigation",
+    "contactHeading": "Contact",
+    "rights": "All rights reserved. No image of a work may be copied, reused, altered or published without the written consent of the rights holder.",
     "privacy": "Privacy Policy",
     "imageTerms": "Image Use Terms"
   },
   "notFound": {
     "title": "Page not found",
-    "message": "The page you are looking for does not exist or has moved.",
-    "backHome": "← Back to home"
+    "message": "The address you opened may have changed, or the content has not been published.",
+    "backHome": "Back to home",
+    "exploreArtworks": "Explore the artworks"
+  },
+  "meta": {
+    "homeTitle": "Nguyễn Tuấn Thịnh | Painting & Sculpture",
+    "homeDescription": "The official website of the painter Nguyễn Tuấn Thịnh, presenting his painting, sculpture, artistic path, exhibitions, Studio Journal and dialogues on art."
   },
   "a11y": {
     "skipToContent": "Skip to main content",

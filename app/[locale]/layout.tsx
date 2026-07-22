@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations } from "next-intl/server";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Source_Sans_3, Playfair_Display } from "next/font/google";
 import { notFound } from "next/navigation";
 import { Analytics } from "@vercel/analytics/next";
 import { routing } from "@/i18n/routing";
@@ -9,17 +9,28 @@ import { SiteNav } from "@/components/ui/site-nav";
 import { SiteFooter } from "@/components/ui/site-footer";
 import "../globals.css";
 
+/*
+ * Bo ky tu `vietnamese` la BAT BUOC. Truoc day chi khai bao "latin", nen cac
+ * chu co dau (ữ, ệ, ạ, ơ...) khong nam trong file font duoc tai ve -- trinh
+ * duyet phai lay tam tu font he thong. Ket qua: chu tieng Viet lech net so voi
+ * chu khong dau ngay trong cung mot dong.
+ */
 const playfair = Playfair_Display({
-  subsets: ["latin"],
+  subsets: ["latin", "vietnamese"],
   weight: ["500", "600"],
   style: ["normal", "italic"],
   variable: "--font-serif",
   display: "swap",
 });
 
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["300", "400", "500"],
+/*
+ * Source Sans 3 -- sans humanist (khung chu dua tren net viet tay, khau chu mo).
+ * Thay cho Inter: Inter la neo-grotesque, net rat deu va trung tinh, doc tot
+ * nhung cung va kho tinh. Source Sans mem hon o cung mot do ro net.
+ */
+const bodySans = Source_Sans_3({
+  subsets: ["latin", "vietnamese"],
+  weight: ["300", "400", "600"],
   variable: "--font-sans",
   display: "swap",
 });
@@ -50,7 +61,7 @@ export default async function LocaleLayout({
   const t = await getTranslations("a11y");
 
   return (
-    <html lang={locale} className={`${playfair.variable} ${inter.variable}`}>
+    <html lang={locale} className={`${playfair.variable} ${bodySans.variable}`}>
       <body className="bg-bg font-sans text-text antialiased">
         <NextIntlClientProvider>
           {/* Skip-link: an cho toi khi dung phim Tab -- WCAG 2.4.1 */}

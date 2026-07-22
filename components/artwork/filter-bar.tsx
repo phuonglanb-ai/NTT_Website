@@ -1,39 +1,25 @@
-// Server Component thuan -- dung <form method="GET"> de loc, khong can
-// JavaScript phia client (submit vao chinh URL hien tai, giu nguyen prefix
-// locale vi day la form tren trang da render theo locale).
+import { Link } from "@/i18n/navigation";
+
+// Server Component thuan -- dung <form method="GET"> de loc theo nam, khong can
+// JavaScript phia client. Loai hinh da co bo loc rieng noi bat (`TypeFilter`),
+// nen o day chi giu `type` bang input an de khong mat lua chon dang co.
 type Props = {
+  basePath: string;
   currentType: string;
   currentYear: string;
-  typeOptions: { value: string; label: string }[];
   labels: {
-    typeLabel: string;
     yearLabel: string;
-    allTypes: string;
     submit: string;
+    clear: string;
   };
 };
 
-export function FilterBar({ currentType, currentYear, typeOptions, labels }: Props) {
+export function FilterBar({ basePath, currentType, currentYear, labels }: Props) {
+  const hasFilter = Boolean(currentType || currentYear);
+
   return (
     <form method="GET" className="flex flex-wrap items-end gap-4">
-      <div className="flex flex-col gap-1">
-        <label htmlFor="type" className="text-xs uppercase tracking-wide text-text-muted">
-          {labels.typeLabel}
-        </label>
-        <select
-          id="type"
-          name="type"
-          defaultValue={currentType}
-          className="border border-white/15 bg-bg-elevated px-3 py-2 text-sm text-text"
-        >
-          <option value="">{labels.allTypes}</option>
-          {typeOptions.map((opt) => (
-            <option key={opt.value} value={opt.value}>
-              {opt.label}
-            </option>
-          ))}
-        </select>
-      </div>
+      {currentType && <input type="hidden" name="type" value={currentType} />}
 
       <div className="flex flex-col gap-1">
         <label htmlFor="year" className="text-xs uppercase tracking-wide text-text-muted">
@@ -54,6 +40,12 @@ export function FilterBar({ currentType, currentYear, typeOptions, labels }: Pro
       >
         {labels.submit}
       </button>
+
+      {hasFilter && (
+        <Link href={basePath} className="py-2 text-sm text-text-muted underline hover:text-text">
+          {labels.clear}
+        </Link>
+      )}
     </form>
   );
 }

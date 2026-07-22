@@ -5,29 +5,11 @@ import {
   getPublishedExhibitions,
   getPressArticles,
 } from "@/lib/content/artist";
+import { Paragraphs } from "@/components/ui/paragraphs";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
-  const artist = await getArtist();
-  const bio = locale === "en" ? artist?.bioEn : artist?.bioVi;
-  return {
-    title: `${artist?.name ?? "Nghệ sĩ"} — Nguyễn Tuấn Thịnh`,
-    description: bio ?? undefined,
-  };
-}
-
-function Paragraphs({ text }: { text: string }) {
-  return (
-    <div className="flex flex-col gap-4 whitespace-pre-wrap leading-relaxed">
-      {text.split(/\n{2,}/).map((para, i) => (
-        <p key={i}>{para}</p>
-      ))}
-    </div>
-  );
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("artistPage");
+  return { title: t("metaTitle"), description: t("metaDescription") };
 }
 
 export default async function ArtistPage({
@@ -61,7 +43,12 @@ export default async function ArtistPage({
             className="h-40 w-40 flex-none border border-white/10 object-cover"
           />
         )}
-        <h1 className="font-serif text-4xl">{artist?.name ?? t("title")}</h1>
+        <div>
+          <h1 className="font-serif text-4xl">{artist?.name ?? t("title")}</h1>
+          <p className="mt-2 text-sm uppercase tracking-[0.28em] text-text-muted">
+            {t("role")}
+          </p>
+        </div>
       </header>
 
       {!hasAnyContent && (
@@ -70,32 +57,30 @@ export default async function ArtistPage({
         </p>
       )}
 
-      {statement && (
-        <section className="mt-16">
-          <h2 className="text-xs uppercase tracking-[0.28em] text-text-muted">
-            {t("statement")}
-          </h2>
-          <div className="mt-4 font-serif text-xl italic leading-relaxed">
-            <Paragraphs text={statement} />
-          </div>
-        </section>
-      )}
-
       {bio && (
         <section className="mt-16">
           <h2 className="text-xs uppercase tracking-[0.28em] text-text-muted">{t("bio")}</h2>
-          <div className="mt-4 text-text">
-            <Paragraphs text={bio} />
-          </div>
+          <Paragraphs text={bio} className="mt-4 text-text" />
+        </section>
+      )}
+
+      {/* Loi nghe si -- van ban do chinh nghe si duyet (xem docs/content-approvals.md) */}
+      {statement && (
+        <section className="mt-16">
+          <h2 className="text-xs uppercase tracking-[0.28em] text-text-muted">
+            {t("statement")} — Nguyễn Tuấn Thịnh
+          </h2>
+          <Paragraphs
+            text={statement}
+            className="mt-4 font-serif text-xl italic"
+          />
         </section>
       )}
 
       {journey && (
         <section className="mt-16">
           <h2 className="text-xs uppercase tracking-[0.28em] text-text-muted">{t("journey")}</h2>
-          <div className="mt-4 text-text">
-            <Paragraphs text={journey} />
-          </div>
+          <Paragraphs text={journey} className="mt-4 text-text" />
         </section>
       )}
 

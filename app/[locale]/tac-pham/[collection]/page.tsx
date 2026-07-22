@@ -1,16 +1,33 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { COLLECTION_SLUGS, isCollectionSlug } from "@/lib/content/collections";
 import { getPublishedArtworks } from "@/lib/content/artworks";
 import { ArtworkCard } from "@/components/artwork/artwork-card";
 import { FilterBar } from "@/components/artwork/filter-bar";
+import { TypeFilter } from "@/components/artwork/type-filter";
+import { Paragraphs } from "@/components/ui/paragraphs";
 import { Link } from "@/i18n/navigation";
 
 export function generateStaticParams() {
   return COLLECTION_SLUGS.map((collection) => ({ collection }));
 }
 
-const ARTWORK_TYPE_VALUES = ["painting", "sculpture", "sketch", "other"] as const;
+const ARTWORK_TYPE_VALUES = ["painting", "sketch", "sculpture", "other"] as const;
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ collection: string }>;
+}): Promise<Metadata> {
+  const { collection } = await params;
+  if (!isCollectionSlug(collection)) return {};
+  const t = await getTranslations("collections");
+  return {
+    title: t(`${collection}.metaTitle`),
+    description: t(`${collection}.metaDescription`),
+  };
+}
 
 export default async function CollectionPage({
   params,
@@ -28,8 +45,10 @@ export default async function CollectionPage({
 
   const page = Math.max(1, Number(pageParam) || 1);
   const yearNumber = year ? Number(year) : undefined;
+  const hasFilter = Boolean(type || year);
+  const basePath = `/tac-pham/${collection}`;
 
-  const [tCollections, t, tFilters, tTypes, { items, totalPages }] = await Promise.all([
+  const [tCollections, t, tFilters, tTypes, { items, total, totalPages }] = await Promise.all([
     getTranslations("collections"),
     getTranslations("collectionPage"),
     getTranslations("filters"),
@@ -37,40 +56,71 @@ export default async function CollectionPage({
     getPublishedArtworks(collection, { page, type: type || undefined, year: yearNumber }),
   ]);
 
+  // Loi nghe si dat rieng cho coi Nang. Ban tieng Anh de trong cho toi khi
+  // nghe si duyet ban dich -- khong tu dong dich loi nghe si (CLAUDE.md muc 7).
+  const artistNote = collection === "nang" ? tCollections("nang.artistNote").trim() : "";
+
   const pageHref = (targetPage: number) => {
-    const params = new URLSearchParams();
-    if (type) params.set("type", type);
-    if (year) params.set("year", year);
-    params.set("page", String(targetPage));
-    return `?${params.toString()}`;
+    const qs = new URLSearchParams();
+    if (type) qs.set("type", type);
+    if (year) qs.set("year", year);
+    qs.set("page", String(targetPage));
+    return `${basePath}?${qs.toString()}`;
   };
 
   return (
     <section className="mx-auto max-w-6xl px-6 py-20">
-      <h1 className="font-serif text-3xl">{tCollections(`${collection}.name`)}</h1>
-      <p className="mt-3 max-w-2xl text-text-muted">{tCollections(`${collection}.note`)}</p>
+      <header className="max-w-2xl">
+        <h1 className="font-serif text-3xl uppercase tracking-[0.14em]">
+          {tCollections(`${collection}.name`)}
+        </h1>
+        <p className="mt-3 text-text-muted">{tCollections(`${collection}.note`)}</p>
+        <Paragraphs
+          text={tCollections(`${collection}.intro`)}
+          className="mt-8 text-text-muted"
+        />
+      </header>
 
-      <div className="mt-10">
-        <FilterBar
+      {artistNote && (
+        <blockquote className="mt-12 max-w-2xl border-l-2 border-accent-cobalt pl-6">
+          <p className="text-xs uppercase tracking-[0.24em] text-text-muted">
+            Lời nghệ sĩ — Nguyễn Tuấn Thịnh
+          </p>
+          <Paragraphs text={artistNote} className="mt-4 font-serif text-lg italic" />
+        </blockquote>
+      )}
+
+      <div className="mt-16 flex flex-col gap-8 border-t border-white/10 pt-10">
+        <TypeFilter
+          basePath={basePath}
           currentType={type ?? ""}
           currentYear={year ?? ""}
-          typeOptions={ARTWORK_TYPE_VALUES.map((value) => ({ value, label: tTypes(value) }))}
+          options={ARTWORK_TYPE_VALUES.map((value) => ({ value, label: tTypes(value) }))}
+          allLabel={tFilters("allTypes")}
+          heading={tFilters("typeLabel")}
+        />
+
+        <FilterBar
+          basePath={basePath}
+          currentType={type ?? ""}
+          currentYear={year ?? ""}
           labels={{
-            typeLabel: tFilters("typeLabel"),
             yearLabel: tFilters("yearLabel"),
-            allTypes: tFilters("allTypes"),
             submit: tFilters("submit"),
+            clear: tFilters("clear"),
           }}
         />
       </div>
 
       {items.length === 0 ? (
         <p className="mt-16 border border-dashed border-white/15 px-6 py-10 text-center text-text-muted">
-          {t("empty")}
+          {hasFilter ? t("noResults") : t("empty")}
         </p>
       ) : (
         <>
-          <div className="mt-12 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+          <p className="mt-10 text-sm text-text-muted">{t("count", { count: total })}</p>
+
+          <div className="mt-8 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
             {items.map((artwork) => (
               <ArtworkCard key={artwork.id} artwork={artwork} locale={locale} />
             ))}
@@ -79,7 +129,7 @@ export default async function CollectionPage({
           {totalPages > 1 && (
             <nav className="mt-16 flex items-center justify-center gap-6 text-sm text-text-muted">
               {page > 1 ? (
-                <Link href={`/tac-pham/${collection}${pageHref(page - 1)}`} className="hover:text-text">
+                <Link href={pageHref(page - 1)} className="hover:text-text">
                   {t("prev")}
                 </Link>
               ) : (
@@ -87,7 +137,7 @@ export default async function CollectionPage({
               )}
               <span>{t("pageOf", { page, totalPages })}</span>
               {page < totalPages ? (
-                <Link href={`/tac-pham/${collection}${pageHref(page + 1)}`} className="hover:text-text">
+                <Link href={pageHref(page + 1)} className="hover:text-text">
                   {t("next")}
                 </Link>
               ) : (
