@@ -19,7 +19,7 @@ export function LoginForm() {
           type="email"
           required
           autoComplete="username"
-          className="border border-white/15 bg-bg-elevated px-3 py-2 text-text outline-none focus:border-accent-cobalt"
+          className="border border-white/15 bg-bg-elevated px-3 py-2 text-text outline-none focus:border-accent-cobalt-bright"
         />
       </div>
 
@@ -34,7 +34,7 @@ export function LoginForm() {
             type={showPassword ? "text" : "password"}
             required
             autoComplete="current-password"
-            className="flex-1 border border-white/15 bg-bg-elevated px-3 py-2 text-text outline-none focus:border-accent-cobalt"
+            className="flex-1 border border-white/15 bg-bg-elevated px-3 py-2 text-text outline-none focus:border-accent-cobalt-bright"
           />
           <button
             type="button"
@@ -57,7 +57,7 @@ export function LoginForm() {
       <button
         type="submit"
         disabled={pending}
-        className="mt-2 border border-accent-cobalt px-4 py-2 text-sm text-text transition-colors hover:bg-accent-cobalt disabled:opacity-50"
+        className="mt-2 border border-accent-cobalt-bright px-4 py-2 text-sm text-text transition-colors hover:bg-accent-cobalt disabled:opacity-50"
       >
         {pending ? "Đang đăng nhập…" : "Đăng nhập"}
       </button>

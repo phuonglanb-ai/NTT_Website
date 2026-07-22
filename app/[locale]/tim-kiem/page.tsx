@@ -33,11 +33,11 @@ export default async function SearchPage({
           name="q"
           defaultValue={query}
           placeholder={t("placeholder")}
-          className="min-w-0 flex-1 border border-white/15 bg-bg-elevated px-4 py-2 text-text outline-none focus:border-accent-cobalt"
+          className="min-w-0 flex-1 border border-white/15 bg-bg-elevated px-4 py-2 text-text outline-none focus:border-accent-cobalt-bright"
         />
         <button
           type="submit"
-          className="border border-accent-cobalt px-5 py-2 text-sm text-text hover:bg-accent-cobalt"
+          className="border border-accent-cobalt-bright px-5 py-2 text-sm text-text hover:bg-accent-cobalt"
         >
           {t("submit")}
         </button>

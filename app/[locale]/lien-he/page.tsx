@@ -36,7 +36,7 @@ export default async function ContactPage() {
           <div className="flex flex-wrap gap-x-3">
             <dt className="text-text-muted">{t("emailLabel")}</dt>
             <dd>
-              <ObfuscatedEmail className="text-text hover:text-accent-cobalt" />
+              <ObfuscatedEmail className="text-text hover:text-accent-cobalt-bright" />
             </dd>
           </div>
         </dl>

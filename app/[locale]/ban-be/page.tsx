@@ -62,7 +62,7 @@ export default async function FriendsPage({
                 {friend.contributions.length > 0 && (
                   <div className="mt-6 flex flex-col gap-6">
                     {friend.contributions.map((c) => (
-                      <div key={c.id} className="border-l-2 border-accent-cobalt pl-4">
+                      <div key={c.id} className="border-l-2 border-accent-cobalt-bright pl-4">
                         <h3 className="font-serif text-lg">{isEn ? c.titleEn : c.titleVi}</h3>
                         {/* Ten tac gia hien ngay duoi tieu de -- moi bai deu
                             phai truy duoc ve nguoi viet. */}

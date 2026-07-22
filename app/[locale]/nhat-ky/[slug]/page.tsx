@@ -66,7 +66,7 @@ export default async function JournalDetailPage({
           href={entry.sourceUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-8 inline-block text-sm text-accent-cobalt hover:underline"
+          className="mt-8 inline-block text-sm text-accent-cobalt-bright hover:underline"
         >
           {t("readMore")}
         </a>

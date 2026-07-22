@@ -26,7 +26,7 @@ export function DualModeViewer({ primaryImage, detailImages, locale }: Props) {
           onClick={() => setMode("full")}
           aria-pressed={mode === "full"}
           className={`border px-4 py-2 ${
-            mode === "full" ? "border-accent-cobalt text-text" : "border-white/15 text-text-muted"
+            mode === "full" ? "border-accent-cobalt-bright text-text" : "border-white/15 text-text-muted"
           }`}
         >
           {t("fullView")}
@@ -37,7 +37,7 @@ export function DualModeViewer({ primaryImage, detailImages, locale }: Props) {
           aria-pressed={mode === "detail"}
           disabled={!hasDetail}
           className={`border px-4 py-2 disabled:opacity-30 ${
-            mode === "detail" ? "border-accent-cobalt text-text" : "border-white/15 text-text-muted"
+            mode === "detail" ? "border-accent-cobalt-bright text-text" : "border-white/15 text-text-muted"
           }`}
         >
           {t("detailView")}

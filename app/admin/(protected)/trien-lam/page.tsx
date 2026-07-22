@@ -15,7 +15,7 @@ export default async function AdminExhibitionListPage() {
         <h1 className="font-serif text-3xl">Triển lãm</h1>
         <Link
           href="/admin/trien-lam/moi"
-          className="border border-accent-cobalt px-4 py-2 text-sm text-text hover:bg-accent-cobalt"
+          className="border border-accent-cobalt-bright px-4 py-2 text-sm text-text hover:bg-accent-cobalt"
         >
           Tạo triển lãm mới
         </Link>
@@ -39,7 +39,7 @@ export default async function AdminExhibitionListPage() {
             {exhibitions.map((ex) => (
               <tr key={ex.id} className="border-b border-white/5 hover:bg-bg-elevated">
                 <td className="py-2 pr-4">
-                  <Link href={`/admin/trien-lam/${ex.id}`} className="hover:text-accent-cobalt">
+                  <Link href={`/admin/trien-lam/${ex.id}`} className="hover:text-accent-cobalt-bright">
                     {ex.titleVi}
                   </Link>
                 </td>

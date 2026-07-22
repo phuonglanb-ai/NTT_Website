@@ -83,7 +83,7 @@ export default async function CollectionPage({
           (text thay vi text-muted), va mot ky hieu hoa quynh dan dau.
         */}
         <p className="mt-5 flex items-start gap-3 font-serif text-xl leading-snug text-text">
-          <Motif className="mt-[0.45rem] h-4 w-4 flex-none text-accent-cobalt" />
+          <Motif className="mt-[0.45rem] h-4 w-4 flex-none text-accent-cobalt-bright" />
           <span>{tCollections(`${collection}.note`)}</span>
         </p>
 
@@ -94,7 +94,7 @@ export default async function CollectionPage({
       </header>
 
       {artistNote && (
-        <blockquote className="mt-12 max-w-2xl border-l-2 border-accent-cobalt pl-6">
+        <blockquote className="mt-12 max-w-2xl border-l-2 border-accent-cobalt-bright pl-6">
           <p className="text-xs uppercase tracking-[0.24em] text-text-muted">
             Lời nghệ sĩ — Nguyễn Tuấn Thịnh
           </p>

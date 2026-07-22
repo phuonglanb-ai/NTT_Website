@@ -18,7 +18,7 @@ export async function generateMetadata(): Promise<Metadata> {
  * tac dung tren phan tu inline -- nut se dinh sat vao doan van phia tren.
  */
 const primaryCta =
-  "inline-block border border-accent-cobalt px-6 py-3 text-sm tracking-wide text-text transition-colors hover:bg-accent-cobalt";
+  "inline-block border border-accent-cobalt-bright px-6 py-3 text-sm tracking-wide text-text transition-colors hover:bg-accent-cobalt";
 const secondaryCta =
   "inline-block border border-white/20 px-6 py-3 text-sm tracking-wide text-text-muted transition-colors hover:border-white/40 hover:text-text";
 
@@ -82,7 +82,7 @@ export default async function HomePage() {
             <Link
               key={slug}
               href={`/tac-pham/${slug}`}
-              className="flex flex-col gap-3 border border-white/10 bg-bg-elevated p-6 transition-colors hover:border-accent-cobalt"
+              className="flex flex-col gap-3 border border-white/10 bg-bg-elevated p-6 transition-colors hover:border-accent-cobalt-bright"
             >
               {/* Hoa quynh lam dau muc -- ba the giu chung mot nhip thi giac */}
               <Motif className="h-5 w-5 text-text-muted" />
@@ -91,7 +91,7 @@ export default async function HomePage() {
               <p className="font-serif leading-snug text-text-muted">
                 {tCollections(`${slug}.note`)}
               </p>
-              <span className="mt-auto pt-5 text-sm text-accent-cobalt">
+              <span className="mt-auto pt-5 text-sm text-accent-cobalt-bright">
                 {tCollections(`${slug}.explore`)} →
               </span>
             </Link>

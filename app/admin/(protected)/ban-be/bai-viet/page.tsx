@@ -22,7 +22,7 @@ export default async function AdminContributionListPage() {
           </Link>
           <Link
             href="/admin/ban-be/bai-viet/moi"
-            className="border border-accent-cobalt px-4 py-2 text-sm text-text hover:bg-accent-cobalt"
+            className="border border-accent-cobalt-bright px-4 py-2 text-sm text-text hover:bg-accent-cobalt"
           >
             Thêm bài
           </Link>
@@ -46,7 +46,7 @@ export default async function AdminContributionListPage() {
             {contributions.map((c) => (
               <tr key={c.id} className="border-b border-white/5 hover:bg-bg-elevated">
                 <td className="py-2 pr-4">
-                  <Link href={`/admin/ban-be/bai-viet/${c.id}`} className="hover:text-accent-cobalt">
+                  <Link href={`/admin/ban-be/bai-viet/${c.id}`} className="hover:text-accent-cobalt-bright">
                     {c.titleVi}
                   </Link>
                 </td>

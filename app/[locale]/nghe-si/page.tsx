@@ -118,7 +118,7 @@ export default async function ArtistPage({
                         href={item.sourceUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-accent-cobalt hover:underline"
+                        className="text-accent-cobalt-bright hover:underline"
                       >
                         {t("readSource")}
                       </a>

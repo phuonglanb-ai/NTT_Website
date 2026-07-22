@@ -22,7 +22,7 @@ export default async function AdminJournalListPage() {
         <h1 className="font-serif text-3xl">Nhật ký</h1>
         <Link
           href="/admin/nhat-ky/moi"
-          className="border border-accent-cobalt px-4 py-2 text-sm text-text hover:bg-accent-cobalt"
+          className="border border-accent-cobalt-bright px-4 py-2 text-sm text-text hover:bg-accent-cobalt"
         >
           Tạo bài mới
         </Link>
@@ -47,7 +47,7 @@ export default async function AdminJournalListPage() {
                 <td className="py-2 pr-4">
                   <Link
                     href={`/admin/nhat-ky/${item.source}/${item.id}`}
-                    className="hover:text-accent-cobalt"
+                    className="hover:text-accent-cobalt-bright"
                   >
                     {item.titleVi}
                   </Link>

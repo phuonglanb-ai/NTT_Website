@@ -15,7 +15,7 @@ export default async function AdminArtworkListPage() {
         <h1 className="font-serif text-3xl">Tác phẩm</h1>
         <Link
           href="/admin/tac-pham/moi"
-          className="border border-accent-cobalt px-4 py-2 text-sm text-text hover:bg-accent-cobalt"
+          className="border border-accent-cobalt-bright px-4 py-2 text-sm text-text hover:bg-accent-cobalt"
         >
           Tạo tác phẩm mới
         </Link>
@@ -54,7 +54,7 @@ export default async function AdminArtworkListPage() {
                 </td>
                 <td className="py-2 pr-4 font-sans text-text-muted">{artwork.code}</td>
                 <td className="py-2 pr-4">
-                  <Link href={`/admin/tac-pham/${artwork.id}`} className="hover:text-accent-cobalt">
+                  <Link href={`/admin/tac-pham/${artwork.id}`} className="hover:text-accent-cobalt-bright">
                     {artwork.titleVi}
                   </Link>
                 </td>

@@ -21,7 +21,7 @@ export default function RootNotFound() {
           <div className="mx-auto mt-8 flex flex-wrap justify-center gap-4">
             <Link
               href="/vi"
-              className="border border-accent-cobalt px-5 py-2 text-sm text-text transition-colors hover:bg-accent-cobalt"
+              className="border border-accent-cobalt-bright px-5 py-2 text-sm text-text transition-colors hover:bg-accent-cobalt"
             >
               Trở về trang chủ
             </Link>

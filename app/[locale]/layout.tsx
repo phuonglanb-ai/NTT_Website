@@ -67,7 +67,7 @@ export default async function LocaleLayout({
           {/* Skip-link: an cho toi khi dung phim Tab -- WCAG 2.4.1 */}
           <a
             href="#main"
-            className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:border focus:border-accent-cobalt focus:bg-bg-elevated focus:px-4 focus:py-2 focus:text-text"
+            className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:border focus:border-accent-cobalt-bright focus:bg-bg-elevated focus:px-4 focus:py-2 focus:text-text"
           >
             {t("skipToContent")}
           </a>

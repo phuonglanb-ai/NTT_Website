@@ -41,13 +41,47 @@ concept, kiểm thử trên tác phẩm thật và phê duyệt riêng.
 ## Màu (design tokens)
 
 ```css
---bg:            #0E0E10;  /* than đen */
---bg-elevated:   #1A1A1D;
---text:          #F4EFE6;  /* trắng ngà */
---text-muted:    #A8A29A;
---accent-cobalt: #2B4F9E;  /* rút từ tranh Nàng */
---accent-oxblood:#7A2320;  /* rút từ tranh Đời / Hỗn mang */
+--bg:                   #0E0E10;  /* than đen */
+--bg-elevated:          #1A1A1D;
+--text:                 #F4EFE6;  /* trắng ngà */
+--text-muted:           #A8A29A;
+--accent-cobalt:        #2B4F9E;  /* rút từ tranh Nàng — CHỈ dùng làm mảng đặc */
+--accent-cobalt-bright: #6E96E0;  /* dùng cho chữ, viền, biểu tượng, focus */
+--accent-oxblood:       #7A2320;  /* rút từ tranh Đời / Hỗn mang */
 ```
+
+### Hai sắc cobalt — đừng dùng lẫn
+
+| Token | Vai trò | Tương phản trên nền |
+|---|---|---|
+| `--accent-cobalt` `#2B4F9E` | **chỉ** mảng đặc (nền nút khi hover) | 2,49:1 — chữ ngà *trên* nó đạt 6,75:1 ✓ |
+| `--accent-cobalt-bright` `#6E96E0` | chữ, viền, biểu tượng, vòng focus | **6,52:1** ✓ |
+
+Cobalt đậm **không đạt** chuẩn WCAG 2.2 khi làm màu chữ (cần 4,5:1) hay làm viền
+thành phần giao diện (cần 3:1). Nó từng bị dùng làm màu cho các liên kết
+"Khám phá…", "Đọc bài →" — người mắt kém hoặc đọc ngoài nắng không nhìn ra.
+Đã sửa ngày 22/07/2026.
+
+### Sắc nền — đã thử nghiệm và chốt giữ nguyên
+
+Ngày 22/07/2026 đã dựng và so sánh trên Preview bốn phương án thay thế, mỗi
+phương án đặt cạnh **tác phẩm thật**:
+
+| | Sắc | Kết quả |
+|---|---|---|
+| Hiện tại | `#0E0E10` xám lạnh | **Đã chọn** — sâu, chuyên nghiệp, an toàn |
+| A | `#141110` nâu đen ấm | không chọn |
+| B | `#0C0F16` xanh đêm | không chọn |
+| C | `#0B0F0D` lục thẫm | không chọn |
+| D | `#110E14` tím than | không chọn |
+
+Cả bốn phương án thay thế đều giữ độ tương phản tương đương (chữ ngà
+16,4–16,9:1; chữ mờ 7,4–7,6:1) nên **quyết định thuần về thẩm mỹ**, không phải
+về khả năng đọc. Chủ dự án chọn giữ nguyên.
+
+*Đừng mở lại tranh luận này nếu không có lý do mới.* Nếu sau này cần thử tiếp,
+lặp lại đúng cách làm cũ: dựng biến thể trên nhánh riêng, xem trên Preview cùng
+tác phẩm thật, rồi gỡ sạch công cụ thử nghiệm sau khi chốt.
 
 > **Lưu ý triển khai:** trong code (`app/globals.css`), các token này mang tiền tố
 > `--color-` theo yêu cầu của Tailwind v4 — `--color-bg`, `--color-text`,

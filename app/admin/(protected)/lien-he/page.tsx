@@ -26,7 +26,7 @@ export default async function AdminInquiriesPage() {
                 <span className="font-serif text-lg">{inq.name}</span>
                 <span className="text-xs text-text-muted">{inq.createdAt.slice(0, 16).replace("T", " ")}</span>
               </div>
-              <a href={`mailto:${inq.email}`} className="text-sm text-accent-cobalt hover:underline">
+              <a href={`mailto:${inq.email}`} className="text-sm text-accent-cobalt-bright hover:underline">
                 {inq.email}
               </a>
               <p className="mt-3 whitespace-pre-wrap text-text">{inq.message}</p>
