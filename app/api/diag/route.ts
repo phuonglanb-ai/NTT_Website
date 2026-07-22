@@ -22,7 +22,9 @@ function describe(name: string) {
 export async function GET() {
   return NextResponse.json({
     NEXT_PUBLIC_SUPABASE_URL: describe("NEXT_PUBLIC_SUPABASE_URL"),
+    SUPABASE_URL: describe("SUPABASE_URL"),
     NEXT_PUBLIC_SUPABASE_ANON_KEY: describe("NEXT_PUBLIC_SUPABASE_ANON_KEY"),
+    SUPABASE_ANON_KEY: describe("SUPABASE_ANON_KEY"),
     SUPABASE_SERVICE_ROLE_KEY: describe("SUPABASE_SERVICE_ROLE_KEY"),
     NEXT_PUBLIC_SITE_URL: describe("NEXT_PUBLIC_SITE_URL"),
   });
