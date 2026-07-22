@@ -68,7 +68,9 @@ export async function submitInquiry(
     ip,
   );
   if (!captchaOk) {
-    return { error: "error" };
+    // Bao rieng, khong gop vao loi chung: nguoi gui can biet la phai tick lai
+    // o kiem tra chu khong phai sai thong tin.
+    return { error: "captcha" };
   }
 
   const supabase = await createClient();

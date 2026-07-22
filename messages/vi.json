@@ -181,6 +181,7 @@
     "error": "Chưa thể gửi lời nhắn. Vui lòng kiểm tra lại thông tin hoặc thử lại sau.",
     "required": "Vui lòng điền đầy đủ họ tên, email và nội dung liên hệ.",
     "rateLimited": "Bạn vừa gửi một lời nhắn. Vui lòng thử lại sau ít phút.",
+    "captcha": "Chưa xác nhận được bạn không phải robot. Vui lòng tích lại ô kiểm tra rồi gửi.",
     "directTitle": "Họa sĩ Nguyễn Tuấn Thịnh",
     "location": "Hà Nội, Việt Nam",
     "phoneLabel": "Điện thoại",

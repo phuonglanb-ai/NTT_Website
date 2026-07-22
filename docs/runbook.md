@@ -102,10 +102,83 @@ Gói Free giới hạn khoảng 1GB. Khi gần đầy, có 2 lựa chọn: nâng
 
 ## 10. Việc phải làm TRƯỚC KHI ra mắt chính thức
 
-- [ ] **Đọc và duyệt lại 2 trang pháp lý**: *Chính sách quyền riêng tư* và *Điều khoản sử dụng hình ảnh*. Đây là **bản thảo do AI soạn**, cần bạn/nghệ sĩ đọc kỹ và chỉnh cho đúng ý trước khi công khai.
-- [ ] **Đổi mật khẩu tài khoản admin** sang mật khẩu mạnh, chỉ bạn biết.
+- [x] **Đọc và duyệt lại 2 trang pháp lý**: *Chính sách quyền riêng tư* và *Điều khoản sử dụng hình ảnh*. — **Nguyễn Tuấn Thịnh đã duyệt ngày 22/07/2026**, ghi tại `docs/content-approvals.md`.
+- [x] **Đổi mật khẩu tài khoản admin** sang mật khẩu mạnh, chỉ bạn biết. — **Đã đổi 22/07/2026.**
 - [ ] Đặt biến `NEXT_PUBLIC_SITE_URL` bằng địa chỉ thật của website (trên Vercel → Settings → Environment Variables). Thiếu bước này thì `sitemap.xml` sẽ trỏ sai địa chỉ.
-- [ ] **Đăng ký Cloudflare Turnstile** (miễn phí) để chống tin nhắn rác ở form Liên hệ: cloudflare.com → Turnstile → tạo site → lấy 2 mã, điền vào Vercel với tên `NEXT_PUBLIC_TURNSTILE_SITE_KEY` và `TURNSTILE_SECRET_KEY`. Chưa điền thì form vẫn chạy bình thường, chỉ là ít lớp bảo vệ hơn.
+- [ ] **Đăng ký Cloudflare Turnstile** (miễn phí) để chống tin nhắn rác ở form Liên hệ — xem hướng dẫn từng bước ở mục 11 bên dưới.
+
+## 11. Cloudflare Turnstile — chống tin nhắn rác
+
+Turnstile là ô "tôi không phải robot" của Cloudflare. Miễn phí, không cần thẻ,
+không bắt người dùng chọn hình ảnh như CAPTCHA cũ.
+
+> ⚠️ **Phải điền ĐỦ CẢ HAI mã.** Website chỉ bật kiểm tra khi có đủ hai biến.
+> Nếu chỉ điền một trong hai, **mọi lời nhắn gửi tới đều bị từ chối** — người gửi
+> nhận thông báo lỗi, còn bạn không nhận được gì và cũng không biết là đang mất
+> thư. Không điền biến nào cả thì form vẫn chạy bình thường (vẫn còn bẫy ẩn
+> chống bot và giới hạn tần suất gửi), chỉ là ít một lớp bảo vệ.
+
+### Bước 1 — Tạo site trên Cloudflare
+
+1. Vào **dash.cloudflare.com** → đăng ký tài khoản miễn phí nếu chưa có
+   (chỉ cần email, **không cần** chuyển tên miền sang Cloudflare)
+2. Menu bên trái → **Turnstile** → **Add widget**
+3. Điền:
+   - **Widget name**: `NTT Website` (tên gợi nhớ, đặt gì cũng được)
+   - **Hostnames**: thêm **từng dòng** các tên miền sẽ dùng:
+     - `ntt-website-five.vercel.app` (địa chỉ production hiện tại)
+     - `localhost` (để chạy thử ở máy)
+     - Tên miền riêng sau này, nếu có
+   - **Widget Mode**: chọn **Managed** (Cloudflare tự quyết khi nào cần hỏi thêm —
+     hầu hết người dùng thật chỉ thấy ô tự tick, không phải làm gì)
+4. Bấm **Create**
+
+Cloudflare hiện ra **hai mã**:
+
+| Tên trên Cloudflare | Điền vào Vercel với tên |
+|---|---|
+| **Site Key** (công khai, bắt đầu bằng `0x4...`) | `NEXT_PUBLIC_TURNSTILE_SITE_KEY` |
+| **Secret Key** (bí mật, bắt đầu bằng `0x4...`) | `TURNSTILE_SECRET_KEY` |
+
+**Secret Key là bí mật** — không gửi qua chat, không chụp màn hình đưa cho ai,
+không đưa vào code. Chỉ dán thẳng vào Vercel.
+
+### Bước 2 — Điền vào Vercel
+
+1. **vercel.com** → dự án **ntt-website** → **Settings** → **Environment Variables**
+2. **Add New**, làm hai lần:
+
+   | Key | Value | Environments |
+   |---|---|---|
+   | `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | Site Key vừa lấy | ✅ Production ✅ Preview ✅ Development |
+   | `TURNSTILE_SECRET_KEY` | Secret Key vừa lấy | ✅ Production ✅ Preview ✅ Development |
+
+3. **Nhớ tick cả ba môi trường.** Chỉ tick Production là bản Preview sẽ hỏng —
+   đúng lỗi đã gặp ngày 22/07/2026 với biến Supabase.
+4. Sang **Deployments** → bản mới nhất → **⋯** → **Redeploy**,
+   **bỏ tick** *Use existing Build Cache*.
+
+Bắt buộc phải deploy lại: biến bắt đầu bằng `NEXT_PUBLIC_` được nhúng vào lúc
+**build**, không đọc lúc chạy.
+
+### Bước 3 — Kiểm tra
+
+Mở trang **Liên hệ riêng** trên website. Dưới ô "Nội dung liên hệ" phải xuất hiện
+một ô kiểm tra nền tối của Cloudflare. Gửi thử một lời nhắn, rồi vào
+**Quản trị → Lời nhắn** xem đã nhận được chưa. Nhận được là xong.
+
+Nếu **không thấy ô kiểm tra**: chưa deploy lại, hoặc quên tick môi trường.
+Nếu **thấy ô nhưng gửi báo lỗi**: nhiều khả năng thiếu `TURNSTILE_SECRET_KEY`,
+hoặc tên miền đang mở chưa có trong danh sách Hostnames ở Bước 1.
+
+### Không cần làm gì thêm
+
+Phần kỹ thuật đã dựng sẵn trong dự án và đã kiểm chứng:
+- Ô kiểm tra tự hiện khi có Site Key, tự ẩn khi không có
+- Trình duyệt được phép tải script và khung của Cloudflare (đã mở trong CSP tại
+  `next.config.ts`)
+- Ô kiểm tra tự làm mới khi gửi thất bại (mỗi mã chỉ dùng được một lần)
+- Giao diện ô theo nền tối, tiếng Việt ở `/vi` và tiếng Anh ở `/en`
 - [ ] Nhập đủ nội dung thật: thông tin nghệ sĩ, và ít nhất vài tác phẩm cho mỗi cõi.
 
 ---

@@ -66,6 +66,17 @@ và `messages/en.json` thuộc loại này. Do chủ dự án (Bùi Phương Lan
 dụng ngày **22/07/2026**. Các văn bản này **không viết ở ngôi "tôi"** và không giả làm
 lời nghệ sĩ.
 
-Ngoại lệ đã biết: hai trang pháp lý (`/chinh-sach-rieng-tu`, `/dieu-khoan-hinh-anh`) hiện
-là **bản thảo do agent soạn**, vẫn đang chờ nghệ sĩ đọc duyệt — xem `docs/runbook.md`
-mục 10.
+## Trang pháp lý
+
+Hai trang này ban đầu là **bản thảo do agent soạn**, nên bắt buộc phải có người
+duyệt trước khi coi là văn bản chính thức.
+
+| Trang | Người duyệt | Ngày duyệt |
+|---|---|---|
+| Chính sách quyền riêng tư (`/chinh-sach-rieng-tu`) | Nguyễn Tuấn Thịnh | 22/07/2026 |
+| Điều khoản sử dụng hình ảnh (`/dieu-khoan-hinh-anh`) | Nguyễn Tuấn Thịnh | 22/07/2026 |
+
+> Đây là **phê duyệt của chủ sở hữu nội dung**, không phải thẩm định pháp lý.
+> Nếu sau này website nhận thanh toán, bán tác phẩm trực tuyến, hoặc thu thập
+> thêm dữ liệu cá nhân ngoài form liên hệ, nên nhờ luật sư rà lại — bộ nội dung
+> tiếng Việt (mục 17) cũng đã tự ghi chú điều này cho phần bản quyền hình ảnh.

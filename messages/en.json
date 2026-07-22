@@ -181,6 +181,7 @@
     "error": "The message could not be sent. Please check your details or try again later.",
     "required": "Please fill in your name, email and message.",
     "rateLimited": "You have just sent a message. Please try again in a few minutes.",
+    "captcha": "We could not confirm you are not a robot. Please tick the check box again and resend.",
     "directTitle": "Nguyễn Tuấn Thịnh, painter",
     "location": "Hanoi, Vietnam",
     "phoneLabel": "Telephone",

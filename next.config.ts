@@ -18,6 +18,16 @@ const isDev = process.env.NODE_ENV === "development";
 const SUPABASE_HOST = "https://*.supabase.co";
 
 /**
+ * Cloudflare Turnstile (chong tin nhan rac o form Lien he).
+ *
+ * Luon co mat trong CSP, KE CA khi chua dang ky Turnstile -- cung ly do voi
+ * SUPABASE_HOST o tren: `headers()` tinh o luc BUILD, neu phu thuoc bien moi
+ * truong thi CSP se im lang thieu domain va o kiem tra khong hien ra, rat kho
+ * doan. Cho phep san mot domain co dinh cua Cloudflare khong lam yeu CSP.
+ */
+const TURNSTILE_HOST = "https://challenges.cloudflare.com";
+
+/**
  * CSP thuc dung: khong dung nonce (can wiring qua middleware, phuc tap hon
  * muc can cho MVP) nhung van chan cac vector chinh -- khong cho script/frame
  * tu domain la, khong cho nhung site khac iframe minh.
@@ -26,10 +36,12 @@ const SUPABASE_HOST = "https://*.supabase.co";
 const csp = [
   "default-src 'self'",
   `img-src 'self' data: blob: ${SUPABASE_HOST}`,
-  `connect-src 'self' ${SUPABASE_HOST}${isDev ? " ws: wss:" : ""}`,
+  `connect-src 'self' ${SUPABASE_HOST} ${TURNSTILE_HOST}${isDev ? " ws: wss:" : ""}`,
   "style-src 'self' 'unsafe-inline'",
-  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
+  `script-src 'self' 'unsafe-inline' ${TURNSTILE_HOST}${isDev ? " 'unsafe-eval'" : ""}`,
   "font-src 'self' data:",
+  // Turnstile ve o kiem tra trong mot iframe -> phai cho phep, neu khong o se trang.
+  `frame-src 'self' ${TURNSTILE_HOST}`,
   "frame-ancestors 'none'",
   "base-uri 'self'",
   "form-action 'self'",
