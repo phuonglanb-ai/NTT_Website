@@ -7,6 +7,7 @@ import { ArtworkCard } from "@/components/artwork/artwork-card";
 import { FilterBar } from "@/components/artwork/filter-bar";
 import { TypeFilter } from "@/components/artwork/type-filter";
 import { Paragraphs } from "@/components/ui/paragraphs";
+import { Motif } from "@/components/ui/motif";
 import { Link } from "@/i18n/navigation";
 
 export function generateStaticParams() {
@@ -74,7 +75,18 @@ export default async function CollectionPage({
         <h1 className="font-serif text-3xl uppercase tracking-[0.14em]">
           {tCollections(`${collection}.name`)}
         </h1>
-        <p className="mt-3 text-text-muted">{tCollections(`${collection}.note`)}</p>
+
+        {/*
+          Cau gioi thieu ngan (dong dan) phai TACH HAN khoi than bai phia duoi,
+          neu khong hai khoi chu nhin y het nhau. Phan biet bang BON tin hieu
+          cung luc: co chu lon hon, chu serif thay vi sans, mau sang hon
+          (text thay vi text-muted), va mot ky hieu hoa quynh dan dau.
+        */}
+        <p className="mt-5 flex items-start gap-3 font-serif text-xl leading-snug text-text">
+          <Motif className="mt-[0.45rem] h-4 w-4 flex-none text-accent-cobalt" />
+          <span>{tCollections(`${collection}.note`)}</span>
+        </p>
+
         <Paragraphs
           text={tCollections(`${collection}.intro`)}
           className="mt-8 text-text-muted"

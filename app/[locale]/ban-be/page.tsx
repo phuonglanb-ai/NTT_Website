@@ -27,7 +27,7 @@ export default async function FriendsPage({
 
       {/* Mien tru trach nhiem: bai cua ban huu la contributor voice, khong phai
           phat ngon cua nghe si (CLAUDE.md muc 7). */}
-      <p className="mt-8 border-l-2 border-white/20 pl-4 text-sm leading-[1.6] text-text-muted">
+      <p className="mt-8 border-l-2 border-white/20 pl-4 text-sm leading-[1.5] text-text-muted">
         {t("disclaimer")}
       </p>
 

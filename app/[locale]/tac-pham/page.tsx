@@ -65,7 +65,9 @@ export default async function ArtworksOverviewPage({
               className="border border-white/10 bg-bg-elevated p-6 transition-colors hover:border-accent-cobalt"
             >
               <h3 className="font-serif text-xl">{tCollections(`${slug}.name`)}</h3>
-              <p className="mt-2 text-sm text-text-muted">{tCollections(`${slug}.note`)}</p>
+              <p className="mt-2 font-serif leading-snug text-text-muted">
+                {tCollections(`${slug}.note`)}
+              </p>
             </Link>
           ))}
         </div>

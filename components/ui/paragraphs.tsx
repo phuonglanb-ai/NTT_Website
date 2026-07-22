@@ -5,9 +5,10 @@
  */
 export function Paragraphs({ text, className }: { text: string; className?: string }) {
   return (
-    // leading-[1.6] thay cho leading-relaxed (1.625): gian dong hep lai mot
-    // chut de cac dong trong cung mot doan doc lien mach hon, khong bi roi rac.
-    <div className={`flex flex-col gap-5 leading-[1.6] ${className ?? ""}`}>
+    // Gian dong 1.5 (mac dinh Tailwind la 1.625): cac dong trong cung mot doan
+    // bam nhau, doc lien mach. Khoang cach GIUA cac doan van giu rong de tach
+    // y -- lien mach trong doan, ro rang giua cac doan.
+    <div className={`flex flex-col gap-5 leading-[1.5] ${className ?? ""}`}>
       {text
         .split(/\n{2,}/)
         .map((para) => para.trim())

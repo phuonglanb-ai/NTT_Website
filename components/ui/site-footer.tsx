@@ -21,8 +21,8 @@ export async function SiteFooter() {
 
   return (
     <footer className="mt-24 border-t border-white/10">
-      <div className="mx-auto max-w-6xl px-6 py-14">
-        <div className="grid gap-10 sm:grid-cols-3">
+      <div className="mx-auto max-w-6xl px-6 py-10">
+        <div className="grid gap-8 sm:grid-cols-3">
           <div>
             <p className="font-serif text-lg">Nguyễn Tuấn Thịnh</p>
             <p className="mt-1 text-sm text-text-muted">{t("tagline")}</p>
