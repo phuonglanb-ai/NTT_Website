@@ -105,7 +105,15 @@ Gói Free giới hạn khoảng 1GB. Khi gần đầy, có 2 lựa chọn: nâng
 - [x] **Đọc và duyệt lại 2 trang pháp lý**: *Chính sách quyền riêng tư* và *Điều khoản sử dụng hình ảnh*. — **Nguyễn Tuấn Thịnh đã duyệt ngày 22/07/2026**, ghi tại `docs/content-approvals.md`.
 - [x] **Đổi mật khẩu tài khoản admin** sang mật khẩu mạnh, chỉ bạn biết. — **Đã đổi 22/07/2026.**
 - [x] Đặt biến `NEXT_PUBLIC_SITE_URL` bằng địa chỉ thật của website. — **Đã đặt** `https://ntt-website-five.vercel.app`, kiểm ngày 22/07/2026: `sitemap.xml` khai báo đủ 26 URL đúng địa chỉ, `robots.txt` chặn `/admin`. **Phải làm lại khi đổi sang tên miền riêng** — xem mục 12.
-- [ ] **Đăng ký Cloudflare Turnstile** (miễn phí) để chống tin nhắn rác ở form Liên hệ — xem hướng dẫn từng bước ở mục 11 bên dưới.
+- [x] **Đăng ký Cloudflare Turnstile** (miễn phí) để chống tin nhắn rác ở form Liên hệ. — **Đã bật 22/07/2026**, kiểm trên production: ô kiểm tra hiện đúng, script Cloudflare tải được, mã xác minh sinh ra hợp lệ. Hướng dẫn ở mục 11.
+
+> **Toàn bộ danh sách trước ra mắt đã hoàn thành.**
+>
+> Bài học rút ra, ghi để lần sau khỏi mất thời gian: mọi biến bắt đầu bằng
+> `NEXT_PUBLIC_` được nhúng vào lúc **build**. Khi thêm hoặc sửa loại biến này,
+> lúc Redeploy **phải bỏ tick** *Use existing Build Cache* — nếu không, Vercel
+> dùng lại bản build cũ và biến mới không có tác dụng, dù đã lưu đúng.
+> Đây chính là nguyên nhân Turnstile không lên ở lần thử đầu.
 
 ## 11. Cloudflare Turnstile — chống tin nhắn rác
 
