@@ -62,7 +62,15 @@ concept, kiểm thử trên tác phẩm thật và phê duyệt riêng.
 ## Chữ
 
 - **Serif — Playfair Display:** Artist Statement, tự sự, tiêu đề tác phẩm, bình giải.
-- **Sans — Inter:** mã ID, kích thước, chất liệu, UI, chú thích kỹ thuật.
+- **Sans — Source Sans 3:** thân bài, mã ID, kích thước, chất liệu, UI, chú thích kỹ thuật.
+  - *Đây là một **sans humanist** — khung chữ dựa trên nét viết tay, khẩu chữ mở.
+    Thay cho Inter (neo-grotesque, nét rất đều và trung tính): Inter đọc tốt nhưng
+    cứng và khô, làm cả trang nghiêm nghị quá mức so với tinh thần tác phẩm.
+    Source Sans mềm hơn ở cùng một độ rõ nét.*
+- **Bộ ký tự `vietnamese` là bắt buộc** cho mọi font. Nếu chỉ khai báo `latin`,
+  các chữ có dấu (ữ, ệ, ạ, ơ…) không nằm trong file font được tải về, trình duyệt
+  phải lấy tạm từ font hệ thống — chữ tiếng Việt sẽ lệch nét so với chữ không dấu
+  ngay trong cùng một dòng.
 
 ### Quy tắc chữ nghiêng — nghiêng là *tiếng nói của nghệ sĩ*
 
