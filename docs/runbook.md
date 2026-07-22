@@ -125,10 +125,11 @@ không bắt người dùng chọn hình ảnh như CAPTCHA cũ.
 2. Menu bên trái → **Turnstile** → **Add widget**
 3. Điền:
    - **Widget name**: `NTT Website` (tên gợi nhớ, đặt gì cũng được)
-   - **Hostnames**: thêm **từng dòng** các tên miền sẽ dùng:
-     - `ntt-website-five.vercel.app` (địa chỉ production hiện tại)
-     - `localhost` (để chạy thử ở máy)
-     - Tên miền riêng sau này, nếu có
+   - **Hostnames**: thêm **từng dòng** (tối đa 10 tên miền):
+     - `ntt-website-five.vercel.app` — địa chỉ production hiện tại, **bắt buộc**
+     - `localhost` — để chạy thử ở máy
+     - `nguyentuanthinh-art.vn` — tên miền tương lai, khai trước cho đỡ quên
+     - `www.nguyentuanthinh-art.vn` — khai rõ cả bản `www`
    - **Widget Mode**: chọn **Managed** (Cloudflare tự quyết khi nào cần hỏi thêm —
      hầu hết người dùng thật chỉ thấy ô tự tick, không phải làm gì)
 4. Bấm **Create**
@@ -146,16 +147,28 @@ không đưa vào code. Chỉ dán thẳng vào Vercel.
 ### Bước 2 — Điền vào Vercel
 
 1. **vercel.com** → dự án **ntt-website** → **Settings** → **Environment Variables**
-2. **Add New**, làm hai lần:
+2. **Add New**, làm **bốn** lần — mỗi tên biến hai mục, khóa khác nhau theo
+   môi trường:
 
-   | Key | Value | Environments |
+   | Key | Value | Tick môi trường |
    |---|---|---|
-   | `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | Site Key vừa lấy | ✅ Production ✅ Preview ✅ Development |
-   | `TURNSTILE_SECRET_KEY` | Secret Key vừa lấy | ✅ Production ✅ Preview ✅ Development |
+   | `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | Site Key **thật** | ✅ Production |
+   | `TURNSTILE_SECRET_KEY` | Secret Key **thật** | ✅ Production |
+   | `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | `1x00000000000000000000AA` | ✅ Preview ✅ Development |
+   | `TURNSTILE_SECRET_KEY` | `1x0000000000000000000000000000000AA` | ✅ Preview ✅ Development |
 
-3. **Nhớ tick cả ba môi trường.** Chỉ tick Production là bản Preview sẽ hỏng —
-   đúng lỗi đã gặp ngày 22/07/2026 với biến Supabase.
-4. Sang **Deployments** → bản mới nhất → **⋯** → **Redeploy**,
+   > **Vì sao Preview phải dùng khóa khác?** Mỗi bản Preview của Vercel có địa
+   > chỉ riêng và **đổi sau mỗi lần deploy** (dạng
+   > `ntt-website-64ocxtmuw-….vercel.app`). Không thể khai trước vào Hostnames,
+   > và chúng không phải subdomain của địa chỉ production nên không ăn theo
+   > được. Dùng khóa thật ở Preview thì Turnstile báo sai tên miền và **mọi lời
+   > nhắn gửi từ bản Preview đều bị từ chối**.
+   >
+   > Cặp `1x0000…` là **khóa thử nghiệm công khai của Cloudflare** — luôn cho
+   > qua, không gắn tên miền nào. Không phải bí mật, dán công khai được. Nhờ vậy
+   > production được bảo vệ thật, còn bản Preview vẫn thử được form.
+
+3. Sang **Deployments** → bản mới nhất → **⋯** → **Redeploy**,
    **bỏ tick** *Use existing Build Cache*.
 
 Bắt buộc phải deploy lại: biến bắt đầu bằng `NEXT_PUBLIC_` được nhúng vào lúc
@@ -222,10 +235,12 @@ Thứ tự dưới đây quan trọng — làm sai thứ tự thì Google có th
 3. **Deploy lại**, bỏ tick *Use existing Build Cache*.
    Bắt buộc: biến `NEXT_PUBLIC_` được nhúng lúc build.
 
-4. **Thêm tên miền mới vào Cloudflare Turnstile**
+4. **Kiểm tên miền mới đã có trong Cloudflare Turnstile chưa**
    dash.cloudflare.com → Turnstile → widget `NTT Website` → **Settings** →
-   thêm tên miền mới vào **Hostnames**. Quên bước này thì ô kiểm tra ở form
-   Liên hệ sẽ báo lỗi và **không ai gửi được lời nhắn**.
+   **Hostnames**. Nếu đã khai sẵn `nguyentuanthinh-art.vn` và
+   `www.nguyentuanthinh-art.vn` từ đầu thì không phải làm gì. Nếu dùng tên miền
+   khác thì thêm vào đây — quên bước này thì ô kiểm tra ở form Liên hệ sẽ báo
+   lỗi và **không ai gửi được lời nhắn**.
 
 5. **Kiểm tra lại** — mở hai địa chỉ này trên trình duyệt:
    - `https://<tên miền mới>/sitemap.xml` — mọi dòng `<loc>` phải mang tên miền
