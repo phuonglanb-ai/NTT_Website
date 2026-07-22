@@ -43,3 +43,7 @@ supabase/.temp/
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# tai lieu soan thao de o goc repo khi lam viec (Word tu tao ca file tam ~$...)
+*.docx
+~$*
