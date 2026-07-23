@@ -18,9 +18,12 @@ export async function uploadWebImage(
   const { buffer: webBuffer, contentType } = await createWebRendition(buffer);
   const path = `${folder}/${crypto.randomUUID()}.jpg`;
 
+  // Boc Blob: xem chu thich o app/admin/tac-pham/actions.ts. Truyen thang Node
+  // Buffer cho supabase-js tren Vercel lam anh bi hong (byte nhi phan bi ma hoa
+  // lai thanh UTF-8). Blob gui du lieu di duoi dang nhi phan ro rang.
   const { error } = await supabase.storage
     .from("artwork-web")
-    .upload(path, webBuffer, { contentType });
+    .upload(path, new Blob([new Uint8Array(webBuffer)], { type: contentType }), { contentType });
 
   if (error) return { error: `Lỗi upload ảnh: ${error.message}` };
   return { path };

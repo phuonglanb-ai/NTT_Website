@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useActionState, useState } from "react";
 import type { ArtworkFormState } from "@/app/admin/tac-pham/actions";
 import type { ArtworkEditData, ArtworkImage } from "@/lib/content/artworks";
@@ -540,13 +541,27 @@ export function ArtworkForm({ action, currentRole, lookups, initialData, existin
         </p>
       )}
 
-      <button
-        type="submit"
-        disabled={pending}
-        className="w-fit border border-accent-cobalt-bright px-6 py-3 text-sm text-text transition-colors hover:bg-accent-cobalt disabled:opacity-50"
-      >
-        {pending ? "Đang lưu…" : "Lưu tác phẩm"}
-      </button>
+      <div className="flex flex-wrap items-center gap-4">
+        <button
+          type="submit"
+          disabled={pending}
+          className="border border-accent-cobalt-bright px-6 py-3 text-sm text-text transition-colors hover:bg-accent-cobalt disabled:opacity-50"
+        >
+          {pending ? "Đang lưu…" : "Lưu tác phẩm"}
+        </button>
+
+        {/* Chi hien khi DANG SUA (sau khi da luu). Luc dang tao moi thi chua
+            can -- form nay chinh la form tao moi. Giup khoi phai quay ra menu
+            de tao tac pham tiep theo. */}
+        {isEdit && (
+          <Link
+            href="/admin/tac-pham/moi"
+            className="border border-white/20 px-6 py-3 text-sm text-text-muted transition-colors hover:border-white/40 hover:text-text"
+          >
+            + Tạo tác phẩm mới
+          </Link>
+        )}
+      </div>
     </form>
   );
 }

@@ -143,15 +143,25 @@ async function processAndUploadImages(
     const webPath = `${artworkId}/${key}.jpg`;
     const originalPath = `${artworkId}/${key}-original.${originalExt}`;
 
+    // BOC Blob la BAT BUOC. Truyen thang Node Buffer cho supabase-js trong moi
+    // truong serverless cua Vercel khien anh bi HONG: buffer nhi phan bi giai ma
+    // thanh chuoi UTF-8 roi ma hoa lai, moi byte >=0x80 thanh ky tu thay the
+    // (ef bf bd). File van la .jpg dung dung luong nhung trinh duyet khong doc
+    // duoc. Blob gui du lieu di duoi dang nhi phan ro rang, khong the bi hieu
+    // nham thanh chuoi. (Chay o may local thi Buffer van dung -- nen loi chi lo
+    // ra khi upload tren production.)
     const { error: webUploadError } = await supabase.storage
       .from("artwork-web")
-      .upload(webPath, webBuffer, { contentType });
+      .upload(webPath, new Blob([new Uint8Array(webBuffer)], { type: contentType }), {
+        contentType,
+      });
     if (webUploadError) return `Lỗi upload ảnh: ${webUploadError.message}`;
 
+    const originalType = entry.file.type || "application/octet-stream";
     const { error: originalUploadError } = await supabase.storage
       .from("artwork-originals")
-      .upload(originalPath, originalBuffer, {
-        contentType: entry.file.type || "application/octet-stream",
+      .upload(originalPath, new Blob([new Uint8Array(originalBuffer)], { type: originalType }), {
+        contentType: originalType,
       });
     if (originalUploadError) return `Lỗi upload ảnh gốc: ${originalUploadError.message}`;
 
