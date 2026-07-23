@@ -68,6 +68,7 @@
     "error": "Nội dung chưa thể hiển thị vào lúc này. Vui lòng thử lại sau.",
     "loading": "Đang mở không gian tác phẩm…",
     "count": "Hiển thị {count} tác phẩm",
+    "artistNoteHeading": "Lời nghệ sĩ — Nguyễn Tuấn Thịnh",
     "prev": "‹ Trước",
     "next": "Sau ›",
     "pageOf": "Trang {page} / {totalPages}"

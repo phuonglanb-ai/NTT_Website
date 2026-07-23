@@ -68,6 +68,7 @@
     "error": "This content cannot be shown at the moment. Please try again later.",
     "loading": "Opening the artwork space…",
     "count": "Showing {count} artworks",
+    "artistNoteHeading": "The artist's words — Nguyễn Tuấn Thịnh",
     "prev": "‹ Prev",
     "next": "Next ›",
     "pageOf": "Page {page} / {totalPages}"

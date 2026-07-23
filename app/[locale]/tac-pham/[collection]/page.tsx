@@ -96,7 +96,7 @@ export default async function CollectionPage({
       {artistNote && (
         <blockquote className="mt-12 max-w-2xl border-l-2 border-accent-cobalt-bright pl-6">
           <p className="text-xs uppercase tracking-[0.24em] text-text-muted">
-            Lời nghệ sĩ — Nguyễn Tuấn Thịnh
+            {t("artistNoteHeading")}
           </p>
           <Paragraphs text={artistNote} className="mt-4 font-serif text-lg italic" />
         </blockquote>
