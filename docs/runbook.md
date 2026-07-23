@@ -267,13 +267,13 @@ Thứ tự dưới đây quan trọng — làm sai thứ tự thì Google có th
 
 ## 13. Nhánh nào là nhánh chính
 
-`master` là nhánh duy nhất. Mọi thay đổi đi vào đây, và Vercel deploy production
+`main` là nhánh duy nhất. Mọi thay đổi đi vào đây, và Vercel deploy production
 từ đây.
 
 | Nơi cài đặt | Giá trị |
 |---|---|
-| GitHub → Settings → Default branch | `master` |
-| Vercel → Settings → Git → Production Branch | `master` |
+| GitHub → Settings → Default branch | `main` |
+| Vercel → Settings → Git → Production Branch | `main` |
 
 Trước đây repo có hai nhánh song song `main` và `master` do lịch sử tạo dự án.
 Đã hợp nhất ngày 22/07/2026.
