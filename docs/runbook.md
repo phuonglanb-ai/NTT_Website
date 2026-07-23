@@ -276,4 +276,4 @@ từ đây.
 | Vercel → Settings → Git → Production Branch | `main` |
 
 Trước đây repo có hai nhánh song song `main` và `master` do lịch sử tạo dự án.
-Đã hợp nhất ngày 22/07/2026.
+Đã đồng nhất về một nhánh `main` ngày 23/07/2026; nhánh `master` đã xoá.
