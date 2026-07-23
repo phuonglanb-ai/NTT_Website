@@ -34,11 +34,20 @@ Bốn loại giọng văn (theo mục 20 trong bộ nội dung tiếng Việt):
 | "Tôi không vẽ người phụ nữ. Tôi vẽ cảm nhận của mình về thế giới của họ…" (bản đầy đủ 4 đoạn) | Trang cõi **Nàng** — `messages/vi.json` → `collections.nang.artistNote` | Nguyễn Tuấn Thịnh | 22/07/2026 | Tin nhắn |
 | "Tôi bắt đầu từ những gì mắt nhìn thấy và thân thể cảm nhận…" (Lời nghệ sĩ tổng quát) | Trang **Nghệ sĩ** — nhập qua Admin vào trường *Tuyên ngôn / Lời nghệ sĩ* | Nguyễn Tuấn Thịnh | 22/07/2026 | Tin nhắn |
 
-**Chưa duyệt — không được đăng:**
+### Bản dịch tiếng Anh của Lời nghệ sĩ
 
-| Văn bản | Tình trạng |
-|---|---|
-| Bản dịch tiếng Anh của Lời nghệ sĩ cho cõi Nàng | **Chưa có.** `collections.nang.artistNote` trong `messages/en.json` đang để trống có chủ ý, nên khối này không hiển thị ở giao diện tiếng Anh. Không tự động dịch — bản dịch phải được nghệ sĩ duyệt rồi mới điền vào. |
+Hai đoạn dưới đây là **bản dịch do AI soạn**, sau đó **Nguyễn Tuấn Thịnh đọc và
+duyệt ngày 22/07/2026**. Nhờ có bước duyệt này, chúng mới đủ điều kiện xuất bản
+như lời nghệ sĩ (`CLAUDE.md` mục 7: bản dịch máy *không tự động* được coi là lời
+nghệ sĩ đã phê duyệt).
+
+| Văn bản | Nơi hiển thị | Người duyệt | Ngày duyệt |
+|---|---|---|---|
+| "I do not paint women. I paint my feeling of their world…" | Trang cõi **Her** — `messages/en.json` → `collections.nang.artistNote` | Nguyễn Tuấn Thịnh | 22/07/2026 |
+| "I begin with what the eye sees and the body feels…" | Trang **Nghệ sĩ** (EN) — `artists.statement_en` | Nguyễn Tuấn Thịnh | 22/07/2026 |
+
+Câu mở đầu đoạn thứ nhất lấy nguyên từ bản song ngữ đã chốt trong
+`product-brief.md` mục 1, không dịch lại.
 
 ---
 
